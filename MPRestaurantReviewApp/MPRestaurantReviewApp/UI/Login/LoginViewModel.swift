@@ -15,5 +15,7 @@ final class LoginViewModel {
         guard !username.isEmpty, !password.isEmpty else {
             return
         }
+        
+        try? await LoginManager().login()
     }
 }

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+final class LoginManager {
+    func login() async throws {
+        
+    }
+}

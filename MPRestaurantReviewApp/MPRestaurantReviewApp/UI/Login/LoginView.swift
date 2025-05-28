@@ -44,7 +44,7 @@ struct LoginView: View {
                 .foregroundColor(.secondary)
                 .underline()
                 .onTapGesture {
-                    print("register")
+                    print("sign up")
                 }
             
             Spacer()
