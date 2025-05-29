@@ -6,30 +6,43 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */; };
+		D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */; };
+		D85E3E202DE8F0B800F83575 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0C2DE8F0B800F83575 /* LoginCoordinator.swift */; };
+		D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0E2DE8F0B800F83575 /* LoginViewController.swift */; };
+		D85E3E222DE8F0B800F83575 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E102DE8F0B800F83575 /* LoginViewModel.swift */; };
+		D85E3E232DE8F0B800F83575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E142DE8F0B800F83575 /* AppDelegate.swift */; };
+		D85E3E242DE8F0B800F83575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E1B2DE8F0B800F83575 /* SceneDelegate.swift */; };
+		D85E3E262DE8F0B800F83575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E0F2DE8F0B800F83575 /* LoginViewController.xib */; };
+		D85E3E272DE8F0B800F83575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E152DE8F0B800F83575 /* Assets.xcassets */; };
+		D85E3E292DE8F0B800F83575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E182DE8F0B800F83575 /* LaunchScreen.storyboard */; };
+		D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E2B2DE9032600F83575 /* TabBarCoordinator.swift */; };
+		D85E3E302DE9093E00F83575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E2F2DE9093E00F83575 /* Main.storyboard */; };
+		D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E312DE90AA300F83575 /* RegistrationViewController.swift */; };
+		D85E3E342DE90AAF00F83575 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E332DE90AAF00F83575 /* RegistrationViewController.xib */; };
+		D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E372DE90B8200F83575 /* RegistrationViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPRestaurantReviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D85E3E0C2DE8F0B800F83575 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E0E2DE8F0B800F83575 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D85E3E0F2DE8F0B800F83575 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D85E3E102DE8F0B800F83575 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D85E3E142DE8F0B800F83575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D85E3E152DE8F0B800F83575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D85E3E162DE8F0B800F83575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D85E3E172DE8F0B800F83575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D85E3E1B2DE8F0B800F83575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D85E3E2B2DE9032600F83575 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E2F2DE9093E00F83575 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D85E3E312DE90AA300F83575 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D85E3E332DE90AAF00F83575 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		D85E3E372DE90B8200F83575 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D85E3DB82DE7833F00F83575 /* Exceptions for "MPRestaurantReviewApp" folder in "MPRestaurantReviewApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = D85E3DA52DE7833E00F83575 /* MPRestaurantReviewApp */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		D85E3DA82DE7833E00F83575 /* MPRestaurantReviewApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				D85E3DB82DE7833F00F83575 /* Exceptions for "MPRestaurantReviewApp" folder in "MPRestaurantReviewApp" target */,
-			);
-			path = MPRestaurantReviewApp;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D85E3DA32DE7833E00F83575 /* Frameworks */ = {
@@ -45,7 +58,7 @@
 		D85E3D9D2DE7833E00F83575 = {
 			isa = PBXGroup;
 			children = (
-				D85E3DA82DE7833E00F83575 /* MPRestaurantReviewApp */,
+				D85E3E1D2DE8F0B800F83575 /* MPRestaurantReviewApp */,
 				D85E3DA72DE7833E00F83575 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +69,69 @@
 				D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D85E3E0D2DE8F0B800F83575 /* Base Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */,
+				D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */,
+				D85E3E2B2DE9032600F83575 /* TabBarCoordinator.swift */,
+			);
+			path = "Base Coordinators";
+			sourceTree = "<group>";
+		};
+		D85E3E112DE8F0B800F83575 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E0C2DE8F0B800F83575 /* LoginCoordinator.swift */,
+				D85E3E392DE90EF200F83575 /* Login */,
+				D85E3E122DE8F0B800F83575 /* Registration */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D85E3E122DE8F0B800F83575 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E312DE90AA300F83575 /* RegistrationViewController.swift */,
+				D85E3E332DE90AAF00F83575 /* RegistrationViewController.xib */,
+				D85E3E372DE90B8200F83575 /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		D85E3E132DE8F0B800F83575 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E0D2DE8F0B800F83575 /* Base Coordinators */,
+				D85E3E112DE8F0B800F83575 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D85E3E1D2DE8F0B800F83575 /* MPRestaurantReviewApp */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E132DE8F0B800F83575 /* Modules */,
+				D85E3E142DE8F0B800F83575 /* AppDelegate.swift */,
+				D85E3E1B2DE8F0B800F83575 /* SceneDelegate.swift */,
+				D85E3E182DE8F0B800F83575 /* LaunchScreen.storyboard */,
+				D85E3E2F2DE9093E00F83575 /* Main.storyboard */,
+				D85E3E152DE8F0B800F83575 /* Assets.xcassets */,
+				D85E3E162DE8F0B800F83575 /* Info.plist */,
+			);
+			path = MPRestaurantReviewApp;
+			sourceTree = "<group>";
+		};
+		D85E3E392DE90EF200F83575 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E0E2DE8F0B800F83575 /* LoginViewController.swift */,
+				D85E3E0F2DE8F0B800F83575 /* LoginViewController.xib */,
+				D85E3E102DE8F0B800F83575 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +148,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D85E3DA82DE7833E00F83575 /* MPRestaurantReviewApp */,
 			);
 			name = MPRestaurantReviewApp;
 			packageProductDependencies = (
@@ -122,6 +195,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85E3E342DE90AAF00F83575 /* RegistrationViewController.xib in Resources */,
+				D85E3E262DE8F0B800F83575 /* LoginViewController.xib in Resources */,
+				D85E3E272DE8F0B800F83575 /* Assets.xcassets in Resources */,
+				D85E3E292DE8F0B800F83575 /* LaunchScreen.storyboard in Resources */,
+				D85E3E302DE9093E00F83575 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +210,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */,
+				D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */,
+				D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */,
+				D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */,
+				D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */,
+				D85E3E202DE8F0B800F83575 /* LoginCoordinator.swift in Sources */,
+				D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */,
+				D85E3E222DE8F0B800F83575 /* LoginViewModel.swift in Sources */,
+				D85E3E232DE8F0B800F83575 /* AppDelegate.swift in Sources */,
+				D85E3E242DE8F0B800F83575 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D85E3E182DE8F0B800F83575 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D85E3E172DE8F0B800F83575 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D85E3DBA2DE7833F00F83575 /* Debug */ = {

@@ -14,8 +14,9 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var contentScrollView: UIScrollView!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var appIconBackgroundView: UIView!
     
-    weak var viewModel: LoginViewModel!
+    var viewModel: LoginViewModel!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,8 +24,38 @@ final class LoginViewController: UIViewController {
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
-        setupButtons()
+        setupUI()
+        setupKeyboardObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        dismissKeyboard()
+    }
+    
+    // MARK: - Setup
+    private func setupUI() {
+        appIconBackgroundView.layer.cornerRadius = appIconBackgroundView.frame.height / 2
+        loginButton.layer.cornerRadius = 10
         
+        let signUpBtnAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 14),
+            .foregroundColor: UIColor.white,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        
+        let attributeString = NSMutableAttributedString(
+            string: "Don't have an account? Sign up!",
+            attributes: signUpBtnAttributes
+        )
+        
+        signUpButton.setAttributedTitle(attributeString, for: .normal)
+    }
+    
+    private func setupKeyboardObserver() {
         let dismissKeyboardTap = UITapGestureRecognizer(
             target: self,
             action: #selector(UIInputViewController.dismissKeyboard)
@@ -46,31 +77,20 @@ final class LoginViewController: UIViewController {
         )
     }
     
-    // MARK: - UI Setup
-    private func setupButtons() {
-        loginButton.layer.cornerRadius = 10
-        
-        let signUpBtnAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 14),
-            .foregroundColor: UIColor.secondaryLabel,
-            .underlineStyle: NSUnderlineStyle.single.rawValue
-        ]
-        
-        let attributeString = NSMutableAttributedString(
-            string: "Don't have an account? Sign up",
-            attributes: signUpBtnAttributes
-        )
-        
-        signUpButton.setAttributedTitle(attributeString, for: .normal)
-    }
-    
     // MARK: - IBActions
     @IBAction private func didTapLoginButton(_ sender: Any) {
-        print("LOGIN")
+        guard let username = usernameTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
+        
+        print("username: \(username), password: \(password)")
+        
+        viewModel.login(username: username, password: password)
     }
     
     @IBAction private func didTapSignUpButton(_ sender: Any) {
-        print("SIGN UP")
+        viewModel.register()
     }
     
     // MARK: - Keyboard Management
@@ -88,13 +108,10 @@ final class LoginViewController: UIViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
     }
 }
