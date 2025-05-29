@@ -7,19 +7,32 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D83E1B312DE66281006C6254 /* MPRestaurantReviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPRestaurantReviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPRestaurantReviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D85E3DB82DE7833F00F83575 /* Exceptions for "MPRestaurantReviewApp" folder in "MPRestaurantReviewApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D85E3DA52DE7833E00F83575 /* MPRestaurantReviewApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D83E1B332DE66281006C6254 /* MPRestaurantReviewApp */ = {
+		D85E3DA82DE7833E00F83575 /* MPRestaurantReviewApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D85E3DB82DE7833F00F83575 /* Exceptions for "MPRestaurantReviewApp" folder in "MPRestaurantReviewApp" target */,
+			);
 			path = MPRestaurantReviewApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D83E1B2E2DE66281006C6254 /* Frameworks */ = {
+		D85E3DA32DE7833E00F83575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D83E1B282DE66281006C6254 = {
+		D85E3D9D2DE7833E00F83575 = {
 			isa = PBXGroup;
 			children = (
-				D83E1B332DE66281006C6254 /* MPRestaurantReviewApp */,
-				D83E1B322DE66281006C6254 /* Products */,
+				D85E3DA82DE7833E00F83575 /* MPRestaurantReviewApp */,
+				D85E3DA72DE7833E00F83575 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D83E1B322DE66281006C6254 /* Products */ = {
+		D85E3DA72DE7833E00F83575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D83E1B312DE66281006C6254 /* MPRestaurantReviewApp.app */,
+				D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D83E1B302DE66281006C6254 /* MPRestaurantReviewApp */ = {
+		D85E3DA52DE7833E00F83575 /* MPRestaurantReviewApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D83E1B3C2DE66282006C6254 /* Build configuration list for PBXNativeTarget "MPRestaurantReviewApp" */;
+			buildConfigurationList = D85E3DB92DE7833F00F83575 /* Build configuration list for PBXNativeTarget "MPRestaurantReviewApp" */;
 			buildPhases = (
-				D83E1B2D2DE66281006C6254 /* Sources */,
-				D83E1B2E2DE66281006C6254 /* Frameworks */,
-				D83E1B2F2DE66281006C6254 /* Resources */,
+				D85E3DA22DE7833E00F83575 /* Sources */,
+				D85E3DA32DE7833E00F83575 /* Frameworks */,
+				D85E3DA42DE7833E00F83575 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D83E1B332DE66281006C6254 /* MPRestaurantReviewApp */,
+				D85E3DA82DE7833E00F83575 /* MPRestaurantReviewApp */,
 			);
 			name = MPRestaurantReviewApp;
 			packageProductDependencies = (
 			);
 			productName = MPRestaurantReviewApp;
-			productReference = D83E1B312DE66281006C6254 /* MPRestaurantReviewApp.app */;
+			productReference = D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D83E1B292DE66281006C6254 /* Project object */ = {
+		D85E3D9E2DE7833E00F83575 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					D83E1B302DE66281006C6254 = {
+					D85E3DA52DE7833E00F83575 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
-			buildConfigurationList = D83E1B2C2DE66281006C6254 /* Build configuration list for PBXProject "MPRestaurantReviewApp" */;
+			buildConfigurationList = D85E3DA12DE7833E00F83575 /* Build configuration list for PBXProject "MPRestaurantReviewApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = D83E1B282DE66281006C6254;
+			mainGroup = D85E3D9D2DE7833E00F83575;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D83E1B322DE66281006C6254 /* Products */;
+			productRefGroup = D85E3DA72DE7833E00F83575 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D83E1B302DE66281006C6254 /* MPRestaurantReviewApp */,
+				D85E3DA52DE7833E00F83575 /* MPRestaurantReviewApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D83E1B2F2DE66281006C6254 /* Resources */ = {
+		D85E3DA42DE7833E00F83575 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D83E1B2D2DE66281006C6254 /* Sources */ = {
+		D85E3DA22DE7833E00F83575 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +138,63 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D83E1B3A2DE66282006C6254 /* Debug */ = {
+		D85E3DBA2DE7833F00F83575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MPRestaurantReviewApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MPRestaurantReviewApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D85E3DBB2DE7833F00F83575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MPRestaurantReviewApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MPRestaurantReviewApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D85E3DBC2DE7833F00F83575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -189,7 +258,7 @@
 			};
 			name = Debug;
 		};
-		D83E1B3B2DE66282006C6254 /* Release */ = {
+		D85E3DBD2DE7833F00F83575 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,84 +315,28 @@
 			};
 			name = Release;
 		};
-		D83E1B3D2DE66282006C6254 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8884T3J9G3;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = plamen.MPRestaurantReviewApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D83E1B3E2DE66282006C6254 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8884T3J9G3;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = plamen.MPRestaurantReviewApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D83E1B2C2DE66281006C6254 /* Build configuration list for PBXProject "MPRestaurantReviewApp" */ = {
+		D85E3DA12DE7833E00F83575 /* Build configuration list for PBXProject "MPRestaurantReviewApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D83E1B3A2DE66282006C6254 /* Debug */,
-				D83E1B3B2DE66282006C6254 /* Release */,
+				D85E3DBC2DE7833F00F83575 /* Debug */,
+				D85E3DBD2DE7833F00F83575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D83E1B3C2DE66282006C6254 /* Build configuration list for PBXNativeTarget "MPRestaurantReviewApp" */ = {
+		D85E3DB92DE7833F00F83575 /* Build configuration list for PBXNativeTarget "MPRestaurantReviewApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D83E1B3D2DE66282006C6254 /* Debug */,
-				D83E1B3E2DE66282006C6254 /* Release */,
+				D85E3DBA2DE7833F00F83575 /* Debug */,
+				D85E3DBB2DE7833F00F83575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D83E1B292DE66281006C6254 /* Project object */;
+	rootObject = D85E3D9E2DE7833E00F83575 /* Project object */;
 }

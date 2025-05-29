@@ -8,14 +8,7 @@
 import Foundation
 
 final class LoginViewModel {
-    var username: String = ""
-    var password: String = ""
-    
-    func login() async throws {
-        guard !username.isEmpty, !password.isEmpty else {
-            return
-        }
+    func login() {
         
-        try? await LoginManager().login()
     }
 }
