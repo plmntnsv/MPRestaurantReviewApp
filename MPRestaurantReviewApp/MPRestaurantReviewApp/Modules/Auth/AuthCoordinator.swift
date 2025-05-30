@@ -20,7 +20,7 @@ final class AuthCoordinator: Coordinator {
     }
     
     func showLogin() {
-        let viewModel = LoginViewModel(coordinator: self)
+        let viewModel = LoginViewModel(coordinator: self, service: AuthService())
         let viewController = LoginViewController(nibName: "\(LoginViewController.self)", bundle: nil)
         viewController.viewModel = viewModel
         
@@ -28,7 +28,7 @@ final class AuthCoordinator: Coordinator {
     }
     
     func showRegistration() {
-        let viewModel = RegistrationViewModel(coordinator: self)
+        let viewModel = RegistrationViewModel(coordinator: self, service: AuthService())
         let viewController = RegistrationViewController(
             nibName: "\(RegistrationViewController.self)",
             bundle: nil

@@ -9,20 +9,36 @@ import Foundation
 
 final class LoginViewModel {
     private weak var coordinator: AuthCoordinator!
+    private let service: AuthService
     
-    init(coordinator: AuthCoordinator) {
+    init(coordinator: AuthCoordinator, service: AuthService) {
         self.coordinator = coordinator
+        self.service = service
     }
     
-    func login(username: String, password: String) {
-        guard !username.isEmpty && !password.isEmpty else {
-            return
+    func loginUser(email: String, password: String) async -> Result<Void, Error> {
+        guard !email.isEmpty && !password.isEmpty else {
+            return .failure(
+                // TODO: add and use common errors
+                NSError(
+                    domain: "BadInput",
+                    code: -1,
+                    userInfo: [NSLocalizedDescriptionKey: "Invalid input"]
+                )
+            )
         }
         
-        // call service
+        switch await service.loginUser(email: email, password: password) {
+        case .success(let user):
+            // TODO: Save user in UserRepo
+            print("Successfully logged in: \(user)")
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
-    func showSignUp() {
+    func showRegistration() {
         coordinator.showRegistration()
     }
 }

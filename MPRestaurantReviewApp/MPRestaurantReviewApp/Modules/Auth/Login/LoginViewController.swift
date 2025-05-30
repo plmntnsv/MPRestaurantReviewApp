@@ -11,7 +11,7 @@ import UIKit
 final class LoginViewController: KeyboardResponsiveViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var signUpButton: UIButton!
-    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var appIconBackgroundView: UIView!
@@ -24,7 +24,7 @@ final class LoginViewController: KeyboardResponsiveViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameTextField.delegate = self
+        emailTextField.delegate = self
         passwordTextField.delegate = self
         setupUI()
     }
@@ -62,18 +62,25 @@ final class LoginViewController: KeyboardResponsiveViewController {
     
     // MARK: - IBActions
     @IBAction private func didTapLoginButton(_ sender: Any) {
-        guard let username = usernameTextField.text,
+        guard let email = emailTextField.text,
               let password = passwordTextField.text else {
             return
         }
         
-        print("username: \(username), password: \(password)")
-        
-        viewModel.login(username: username, password: password)
+        Task {
+            let result = await viewModel.loginUser(email: email, password: password)
+            
+            switch result {
+            case .success:
+                view.backgroundColor = .green
+            case .failure(let error):
+                view.backgroundColor = .red
+            }
+        }
     }
     
     @IBAction private func didTapSignUpButton(_ sender: Any) {
-        viewModel.showSignUp()
+        viewModel.showRegistration()
     }
 }
 

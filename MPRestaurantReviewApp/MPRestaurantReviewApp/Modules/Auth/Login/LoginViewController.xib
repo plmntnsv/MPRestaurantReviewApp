@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
                 <outlet property="appIconBackgroundView" destination="h9l-q2-II7" id="iWl-Xq-aZ4"/>
+                <outlet property="emailTextField" destination="9XK-U0-ZGA" id="Bqi-4W-vSr"/>
                 <outlet property="loginButton" destination="Nbv-r6-FwD" id="bcA-UO-TrE"/>
                 <outlet property="passwordTextField" destination="HHt-fq-Lhz" id="oEz-dG-hih"/>
                 <outlet property="scrollView" destination="zfs-h0-UeR" id="hvk-RV-LYY"/>
                 <outlet property="signUpButton" destination="udO-08-dau" id="Hpo-HB-mid"/>
-                <outlet property="usernameTextField" destination="9XK-U0-ZGA" id="Bqi-4W-vSr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="hM6-Nr-v6X"/>
             </connections>
         </placeholder>
@@ -63,10 +63,10 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-U0-ZGA" userLabel="Username TextField">
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-U0-ZGA" userLabel="Email TextField">
                                             <rect key="frame" x="0.0" y="39.333333333333314" width="293" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="username"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                     <color key="value" systemColor="systemCyanColor"/>
