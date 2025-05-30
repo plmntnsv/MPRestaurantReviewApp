@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */; };
 		D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */; };
-		D85E3E202DE8F0B800F83575 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0C2DE8F0B800F83575 /* LoginCoordinator.swift */; };
+		D85E3E202DE8F0B800F83575 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0C2DE8F0B800F83575 /* AuthCoordinator.swift */; };
 		D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0E2DE8F0B800F83575 /* LoginViewController.swift */; };
 		D85E3E222DE8F0B800F83575 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E102DE8F0B800F83575 /* LoginViewModel.swift */; };
 		D85E3E232DE8F0B800F83575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E142DE8F0B800F83575 /* AppDelegate.swift */; };
@@ -22,13 +22,16 @@
 		D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E312DE90AA300F83575 /* RegistrationViewController.swift */; };
 		D85E3E342DE90AAF00F83575 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E332DE90AAF00F83575 /* RegistrationViewController.xib */; };
 		D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E372DE90B8200F83575 /* RegistrationViewModel.swift */; };
+		D85E3E3B2DE9DB7500F83575 /* BaseAppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E3A2DE9DB7500F83575 /* BaseAppearanceViewController.swift */; };
+		D85E3E3F2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E3E2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift */; };
+		D85E3E422DE9FB9E00F83575 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E412DE9FB9E00F83575 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPRestaurantReviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		D85E3E0C2DE8F0B800F83575 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E0C2DE8F0B800F83575 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		D85E3E0E2DE8F0B800F83575 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D85E3E0F2DE8F0B800F83575 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D85E3E102DE8F0B800F83575 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -42,6 +45,9 @@
 		D85E3E312DE90AA300F83575 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D85E3E332DE90AAF00F83575 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		D85E3E372DE90B8200F83575 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		D85E3E3A2DE9DB7500F83575 /* BaseAppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppearanceViewController.swift; sourceTree = "<group>"; };
+		D85E3E3E2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsiveViewController.swift; sourceTree = "<group>"; };
+		D85E3E412DE9FB9E00F83575 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +87,14 @@
 			path = "Base Coordinators";
 			sourceTree = "<group>";
 		};
-		D85E3E112DE8F0B800F83575 /* Login */ = {
+		D85E3E112DE8F0B800F83575 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				D85E3E0C2DE8F0B800F83575 /* LoginCoordinator.swift */,
+				D85E3E0C2DE8F0B800F83575 /* AuthCoordinator.swift */,
 				D85E3E392DE90EF200F83575 /* Login */,
 				D85E3E122DE8F0B800F83575 /* Registration */,
 			);
-			path = Login;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D85E3E122DE8F0B800F83575 /* Registration */ = {
@@ -104,8 +110,7 @@
 		D85E3E132DE8F0B800F83575 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D85E3E0D2DE8F0B800F83575 /* Base Coordinators */,
-				D85E3E112DE8F0B800F83575 /* Login */,
+				D85E3E112DE8F0B800F83575 /* Auth */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -113,6 +118,9 @@
 		D85E3E1D2DE8F0B800F83575 /* MPRestaurantReviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				D85E3E402DE9FB1900F83575 /* UI Components */,
+				D85E3E3D2DE9E5AB00F83575 /* Base Classes */,
+				D85E3E0D2DE8F0B800F83575 /* Base Coordinators */,
 				D85E3E132DE8F0B800F83575 /* Modules */,
 				D85E3E142DE8F0B800F83575 /* AppDelegate.swift */,
 				D85E3E1B2DE8F0B800F83575 /* SceneDelegate.swift */,
@@ -132,6 +140,23 @@
 				D85E3E102DE8F0B800F83575 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D85E3E3D2DE9E5AB00F83575 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E3A2DE9DB7500F83575 /* BaseAppearanceViewController.swift */,
+				D85E3E3E2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift */,
+			);
+			path = "Base Classes";
+			sourceTree = "<group>";
+		};
+		D85E3E402DE9FB1900F83575 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E412DE9FB9E00F83575 /* ActionButton.swift */,
+			);
+			path = "UI Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,14 +237,17 @@
 			files = (
 				D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */,
 				D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */,
+				D85E3E422DE9FB9E00F83575 /* ActionButton.swift in Sources */,
+				D85E3E3B2DE9DB7500F83575 /* BaseAppearanceViewController.swift in Sources */,
 				D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */,
 				D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */,
 				D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */,
-				D85E3E202DE8F0B800F83575 /* LoginCoordinator.swift in Sources */,
+				D85E3E202DE8F0B800F83575 /* AuthCoordinator.swift in Sources */,
 				D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */,
 				D85E3E222DE8F0B800F83575 /* LoginViewModel.swift in Sources */,
 				D85E3E232DE8F0B800F83575 /* AppDelegate.swift in Sources */,
 				D85E3E242DE8F0B800F83575 /* SceneDelegate.swift in Sources */,
+				D85E3E3F2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

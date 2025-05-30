@@ -12,9 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
                 <outlet property="appIconBackgroundView" destination="h9l-q2-II7" id="iWl-Xq-aZ4"/>
-                <outlet property="contentScrollView" destination="zfs-h0-UeR" id="HQf-8e-mjr"/>
                 <outlet property="loginButton" destination="Nbv-r6-FwD" id="bcA-UO-TrE"/>
                 <outlet property="passwordTextField" destination="HHt-fq-Lhz" id="oEz-dG-hih"/>
+                <outlet property="scrollView" destination="zfs-h0-UeR" id="hvk-RV-LYY"/>
                 <outlet property="signUpButton" destination="udO-08-dau" id="Hpo-HB-mid"/>
                 <outlet property="usernameTextField" destination="9XK-U0-ZGA" id="Bqi-4W-vSr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="hM6-Nr-v6X"/>
@@ -84,7 +84,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MS-5e-hUf" userLabel="Login View">
                                             <rect key="frame" x="0.0" y="123.33333333333331" width="293" height="48"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-r6-FwD" userLabel="Login Button">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-r6-FwD" userLabel="Login Button" customClass="ActionButton" customModule="MPRestaurantReviewApp" customModuleProvider="target">
                                                     <rect key="frame" x="91.666666666666657" y="8" width="110" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>

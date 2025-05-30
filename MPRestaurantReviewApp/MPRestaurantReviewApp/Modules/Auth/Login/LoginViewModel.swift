@@ -8,9 +8,9 @@
 import Foundation
 
 final class LoginViewModel {
-    private weak var coordinator: LoginCoordinator!
+    private weak var coordinator: AuthCoordinator!
     
-    init(coordinator: LoginCoordinator) {
+    init(coordinator: AuthCoordinator) {
         self.coordinator = coordinator
     }
     
@@ -18,9 +18,11 @@ final class LoginViewModel {
         guard !username.isEmpty && !password.isEmpty else {
             return
         }
+        
+        // call service
     }
     
-    func register() {
+    func showSignUp() {
         coordinator.showRegistration()
     }
 }

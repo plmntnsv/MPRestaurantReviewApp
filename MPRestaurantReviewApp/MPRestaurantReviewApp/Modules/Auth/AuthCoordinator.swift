@@ -1,5 +1,5 @@
 //
-//  LoginCoordinator.swift
+//  AuthCoordinator.swift
 //  MPRestaurantReviewApp
 //
 //  Created by Plamen Atanasov on 29.05.25.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class LoginCoordinator: Coordinator {
+final class AuthCoordinator: Coordinator {
     private var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
@@ -28,7 +28,7 @@ final class LoginCoordinator: Coordinator {
     }
     
     func showRegistration() {
-        let viewModel = RegistrationViewModel()
+        let viewModel = RegistrationViewModel(coordinator: self)
         let viewController = RegistrationViewController(
             nibName: "\(RegistrationViewController.self)",
             bundle: nil
@@ -36,5 +36,9 @@ final class LoginCoordinator: Coordinator {
         viewController.viewModel = viewModel
         
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func didFinishLogin() {
+        appCoordinator.startMainFlow()
     }
 }

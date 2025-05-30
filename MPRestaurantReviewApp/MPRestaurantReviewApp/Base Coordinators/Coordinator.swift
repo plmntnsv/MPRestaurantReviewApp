@@ -54,7 +54,10 @@ extension Coordinator {
         return parentCoordinator?.firstParent(of: type)
     }
     
-    var appCoordinator: AppCoordinator? {
+    // AppCoordinator must be the first Coordinator of the coordinators' chain
+    // We ! unwrap it because if it is missing something is totally wrong
+    // and we better crash.
+    var appCoordinator: AppCoordinator! {
         return firstParent(of: AppCoordinator.self)
     }
 }

@@ -29,16 +29,12 @@ final class AppCoordinator: Coordinator {
 // MARK: - Coordinator Navigation
 extension AppCoordinator {
     private func startLoginFlow() {
-        let coordinator = LoginCoordinator(navigationController: navigationController)
+        let coordinator = AuthCoordinator(navigationController: navigationController)
         addChildCoordinator(coordinator)
         coordinator.start()
     }
     
     func startMainFlow() {
-        
-    }
-    
-    func loginDidFinish() {
         removeAllChildCoordinators()
         removeAllViewControllers()
         
