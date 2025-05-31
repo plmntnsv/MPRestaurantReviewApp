@@ -84,7 +84,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MS-5e-hUf" userLabel="Login View">
                                             <rect key="frame" x="0.0" y="123.33333333333331" width="293" height="48"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-r6-FwD" userLabel="Login Button" customClass="ActionButton" customModule="MPRestaurantReviewApp" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-r6-FwD" userLabel="Login Button" customClass="PrimaryButton" customModule="MPRestaurantReviewApp" customModuleProvider="target">
                                                     <rect key="frame" x="91.666666666666657" y="8" width="110" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>

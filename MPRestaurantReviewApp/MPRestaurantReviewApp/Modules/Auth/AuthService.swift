@@ -25,14 +25,7 @@ final class AuthService {
                     continuation.resume(returning: .success(user))
                 } else {
                     continuation.resume(
-                        // TODO: add and use common errors
-                        returning: .failure(
-                            NSError(
-                                domain: "AuthError",
-                                code: -1,
-                                userInfo: [NSLocalizedDescriptionKey: "User not found"]
-                            )
-                        )
+                        returning: .failure(AppError.userNotFound.error)
                     )
                 }
             }
@@ -55,13 +48,21 @@ final class AuthService {
     
     func createUser(email: String, password: String, firstName: String, lastName: String) async -> Result<Void, Error> {
         return await withCheckedContinuation { continuation in
-            Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            Auth.auth().createUser(
+                withEmail: email,
+                password: password
+            ) { [weak self] authResult, error in
                 do {
-                    let newUser = User(email: email, firstName: firstName, lastName: lastName, isAdmin: false)
+                    let newUser = User(
+                        email: email,
+                        firstName: firstName,
+                        lastName: lastName,
+                        isAdmin: false
+                    )
                     
                     guard let authResult else {
-                        // TODO: common error
-                        continuation.resume(returning: .failure(NSError()))
+                        let error = error ?? AppError.userNotFound.error
+                        continuation.resume(returning: .failure(error))
                         return
                     }
                     

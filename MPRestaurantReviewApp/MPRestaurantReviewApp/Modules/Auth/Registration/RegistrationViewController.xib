@@ -120,7 +120,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rj-8O-1Mj" userLabel="Register Button Container View">
                                             <rect key="frame" x="0.0" y="372" width="377" height="48"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYi-0S-CTC" userLabel="Register Button" customClass="ActionButton" customModule="MPRestaurantReviewApp" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYi-0S-CTC" userLabel="Register Button" customClass="PrimaryButton" customModule="MPRestaurantReviewApp" customModuleProvider="target">
                                                     <rect key="frame" x="123.66666666666666" y="8" width="130" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>

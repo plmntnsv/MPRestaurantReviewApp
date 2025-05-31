@@ -17,7 +17,12 @@ final class RegistrationViewModel {
         self.service = service
     }
     
-    func registerUser(email: String, password: String, firstName: String, lastName: String) async -> Result<Void, Error> {
+    func registerUser(
+        email: String,
+        password: String,
+        firstName: String,
+        lastName: String
+    ) async -> Result<Void, Error> {
         let userResult = await service.createUser(
             email: email,
             password: password,

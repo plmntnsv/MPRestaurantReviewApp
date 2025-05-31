@@ -18,14 +18,7 @@ final class LoginViewModel {
     
     func loginUser(email: String, password: String) async -> Result<Void, Error> {
         guard !email.isEmpty && !password.isEmpty else {
-            return .failure(
-                // TODO: add and use common errors
-                NSError(
-                    domain: "BadInput",
-                    code: -1,
-                    userInfo: [NSLocalizedDescriptionKey: "Invalid input"]
-                )
-            )
+            return .failure(AppError.badInput(additionalInfo: "Email or password cannot be empty").error)
         }
         
         switch await service.loginUser(email: email, password: password) {

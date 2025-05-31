@@ -46,14 +46,19 @@ final class RegistrationViewController: KeyboardResponsiveViewController {
         let repeatPassword = repeatPasswordTextField.text,
         let firstName = firstNameTextField.text,
         let lastName = lastNameTextField.text else {
-            // TODO: display alert
+            ErrorHandler.showError(AppError.badInput(additionalInfo: "All fields are required").error, in: self)
             return
         }
         
         guard password == repeatPassword else {
-            // TODO: display alert
+            ErrorHandler.showError(
+                AppError.badInput(additionalInfo: "Passwords do not match").error,
+                in: self
+            )
             return
         }
+        
+        let blockingView = view.block()
         
         Task {
             let result = await viewModel.registerUser(
@@ -67,8 +72,10 @@ final class RegistrationViewController: KeyboardResponsiveViewController {
             case .success:
                 view.backgroundColor = .green
             case .failure(let error):
-                view.backgroundColor = .red
+                ErrorHandler.showError(error, in: self)
             }
+            
+            blockingView.removeFromSuperview()
         }
     }
 }

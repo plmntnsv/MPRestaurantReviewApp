@@ -1,5 +1,5 @@
 //
-//  ActionButton.swift
+//  PrimaryButton.swift
 //  MPRestaurantReviewApp
 //
 //  Created by Plamen Atanasov on 30.05.25.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ActionButton: UIButton {
+class PrimaryButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyle()

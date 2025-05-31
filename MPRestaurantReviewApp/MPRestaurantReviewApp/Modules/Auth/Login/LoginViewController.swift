@@ -24,6 +24,9 @@ final class LoginViewController: KeyboardResponsiveViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.text = "az@az.az"
+        passwordTextField.text = "123456"
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         setupUI()
@@ -67,6 +70,8 @@ final class LoginViewController: KeyboardResponsiveViewController {
             return
         }
         
+        let blockingView = view.block()
+        
         Task {
             let result = await viewModel.loginUser(email: email, password: password)
             
@@ -74,8 +79,10 @@ final class LoginViewController: KeyboardResponsiveViewController {
             case .success:
                 view.backgroundColor = .green
             case .failure(let error):
-                view.backgroundColor = .red
+                ErrorHandler.showError(error, in: self)
             }
+            
+            blockingView.removeFromSuperview()
         }
     }
     
