@@ -23,8 +23,7 @@ final class LoginViewModel {
         
         switch await service.loginUser(email: email, password: password) {
         case .success(let user):
-            // TODO: Save user in UserRepo
-            print("Successfully logged in: \(user)")
+            UserManager.shared.saveUser(user)
             return .success(())
         case .failure(let error):
             return .failure(error)

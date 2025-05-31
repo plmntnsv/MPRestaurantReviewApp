@@ -34,6 +34,7 @@
 		D85E3E572DEB604A00F83575 /* BlockUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E562DEB604A00F83575 /* BlockUIView.swift */; };
 		D85E3E592DEB689200F83575 /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E582DEB689200F83575 /* UIView+Utilities.swift */; };
 		D85E3E5D2DEB6D9700F83575 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E5C2DEB6D9700F83575 /* ErrorHandler.swift */; };
+		D85E3E622DEB9E9000F83575 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E612DEB9E9000F83575 /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D85E3E562DEB604A00F83575 /* BlockUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockUIView.swift; sourceTree = "<group>"; };
 		D85E3E582DEB689200F83575 /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
 		D85E3E5C2DEB6D9700F83575 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		D85E3E612DEB9E9000F83575 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		D85E3E1D2DE8F0B800F83575 /* MPRestaurantReviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				D85E3E602DEB9E8800F83575 /* Managers */,
 				D85E3E5B2DEB6D8400F83575 /* Helpers */,
 				D85E3E532DEB5FF600F83575 /* Extensions */,
 				D85E3E402DE9FB1900F83575 /* UI Components */,
@@ -205,6 +208,14 @@
 				D85E3E2B2DE9032600F83575 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		D85E3E602DEB9E8800F83575 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E612DEB9E9000F83575 /* UserManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			files = (
 				D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */,
 				D85E3E522DEA4CED00F83575 /* User.swift in Sources */,
+				D85E3E622DEB9E9000F83575 /* UserManager.swift in Sources */,
 				D85E3E572DEB604A00F83575 /* BlockUIView.swift in Sources */,
 				D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */,
 				D85E3E422DE9FB9E00F83575 /* PrimaryButton.swift in Sources */,

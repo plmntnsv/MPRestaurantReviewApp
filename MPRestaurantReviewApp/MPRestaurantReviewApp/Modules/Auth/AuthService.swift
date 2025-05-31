@@ -46,7 +46,12 @@ final class AuthService {
         }
     }
     
-    func createUser(email: String, password: String, firstName: String, lastName: String) async -> Result<Void, Error> {
+    func createUser(
+        email: String,
+        password: String,
+        firstName: String,
+        lastName: String
+    ) async -> Result<Void, Error> {
         return await withCheckedContinuation { continuation in
             Auth.auth().createUser(
                 withEmail: email,
@@ -83,7 +88,6 @@ final class AuthService {
             
             return .success(user)
         } catch {
-            print("Error decoding user: \(error)")
             return .failure(error)
         }
     }

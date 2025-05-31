@@ -32,13 +32,11 @@ final class RegistrationViewModel {
         
         switch userResult {
         case .success:
-            print("Successfully registered user")
             let loggedInResult = await service.loginUser(email: email, password: password)
             
             switch loggedInResult {
             case .success(let user):
-                // TODO: Save user in UserRepo
-                print("Successfully logged in user: \(user)")
+                UserManager.shared.saveUser(user)
                 return .success(())
             case .failure(let error):
                 return .failure(error)
