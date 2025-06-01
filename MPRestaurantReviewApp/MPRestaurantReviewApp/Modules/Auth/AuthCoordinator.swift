@@ -15,7 +15,7 @@ final class AuthCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    func start() {
+    override func start() {
         showLogin()
     }
     
@@ -39,6 +39,8 @@ final class AuthCoordinator: Coordinator {
     }
     
     func didFinishLogin() {
-        appCoordinator.startMainFlow()
+        DispatchQueue.main.async {
+            self.appCoordinator.startMainFlow()
+        }
     }
 }

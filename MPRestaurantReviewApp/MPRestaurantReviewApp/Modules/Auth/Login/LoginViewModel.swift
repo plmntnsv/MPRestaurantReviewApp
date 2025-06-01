@@ -24,6 +24,7 @@ final class LoginViewModel {
         switch await service.loginUser(email: email, password: password) {
         case .success(let user):
             UserManager.shared.saveUser(user)
+            coordinator.didFinishLogin()
             return .success(())
         case .failure(let error):
             return .failure(error)

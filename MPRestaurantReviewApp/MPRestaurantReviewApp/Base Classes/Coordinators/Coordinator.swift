@@ -9,7 +9,7 @@ class Coordinator {
     private(set) var childCoordinators: [Coordinator] = []
     weak var parentCoordinator: Coordinator?
     
-    func start(animated: Bool = true) {
+    func start() {
         preconditionFailure("start(animated:) must be overriden by subclass!")
     }
     

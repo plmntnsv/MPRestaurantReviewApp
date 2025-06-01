@@ -35,6 +35,20 @@
 		D85E3E592DEB689200F83575 /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E582DEB689200F83575 /* UIView+Utilities.swift */; };
 		D85E3E5D2DEB6D9700F83575 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E5C2DEB6D9700F83575 /* ErrorHandler.swift */; };
 		D85E3E622DEB9E9000F83575 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E612DEB9E9000F83575 /* UserManager.swift */; };
+		D85E3E662DEBA49300F83575 /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E652DEBA49300F83575 /* RestaurantsViewController.swift */; };
+		D85E3E682DEBA4BB00F83575 /* RestaurantsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E672DEBA4BB00F83575 /* RestaurantsViewController.xib */; };
+		D85E3E6A2DEBA4C900F83575 /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E692DEBA4C900F83575 /* RestaurantsViewModel.swift */; };
+		D85E3E6C2DEBA5A900F83575 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E6B2DEBA5A900F83575 /* RestaurantTableViewCell.swift */; };
+		D85E3E6E2DEBA5E900F83575 /* RestaurantsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E6D2DEBA5E900F83575 /* RestaurantsCoordinator.swift */; };
+		D85E3E702DEBB39700F83575 /* RestaurantsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E6F2DEBB39700F83575 /* RestaurantsService.swift */; };
+		D85E3E722DEBCB1200F83575 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E712DEBCB1200F83575 /* BaseTabBarController.swift */; };
+		D85E3E742DEBD11800F83575 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E732DEBD11800F83575 /* BaseNavigationController.swift */; };
+		D85E3E7B2DEBD27800F83575 /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E772DEBD27800F83575 /* UsersViewController.xib */; };
+		D85E3E7C2DEBD27800F83575 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E792DEBD27800F83575 /* UserTableViewCell.swift */; };
+		D85E3E7D2DEBD27800F83575 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E782DEBD27800F83575 /* UsersViewModel.swift */; };
+		D85E3E7E2DEBD27800F83575 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E752DEBD27800F83575 /* UsersCoordinator.swift */; };
+		D85E3E7F2DEBD27800F83575 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E762DEBD27800F83575 /* UsersViewController.swift */; };
+		D85E3E802DEBD27800F83575 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E7A2DEBD27800F83575 /* UsersService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +79,20 @@
 		D85E3E582DEB689200F83575 /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
 		D85E3E5C2DEB6D9700F83575 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		D85E3E612DEB9E9000F83575 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		D85E3E652DEBA49300F83575 /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
+		D85E3E672DEBA4BB00F83575 /* RestaurantsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantsViewController.xib; sourceTree = "<group>"; };
+		D85E3E692DEBA4C900F83575 /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
+		D85E3E6B2DEBA5A900F83575 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		D85E3E6D2DEBA5E900F83575 /* RestaurantsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E6F2DEBB39700F83575 /* RestaurantsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsService.swift; sourceTree = "<group>"; };
+		D85E3E712DEBCB1200F83575 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		D85E3E732DEBD11800F83575 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		D85E3E752DEBD27800F83575 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E762DEBD27800F83575 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		D85E3E772DEBD27800F83575 /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
+		D85E3E782DEBD27800F83575 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		D85E3E792DEBD27800F83575 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		D85E3E7A2DEBD27800F83575 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +150,8 @@
 		D85E3E132DE8F0B800F83575 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D85E3E642DEBA45300F83575 /* Users */,
+				D85E3E632DEBA44000F83575 /* Restaurants */,
 				D85E3E112DE8F0B800F83575 /* Auth */,
 			);
 			path = Modules;
@@ -196,6 +226,8 @@
 			children = (
 				D85E3E3A2DE9DB7500F83575 /* BaseAppearanceViewController.swift */,
 				D85E3E3E2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift */,
+				D85E3E712DEBCB1200F83575 /* BaseTabBarController.swift */,
+				D85E3E732DEBD11800F83575 /* BaseNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +248,32 @@
 				D85E3E612DEB9E9000F83575 /* UserManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D85E3E632DEBA44000F83575 /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E6D2DEBA5E900F83575 /* RestaurantsCoordinator.swift */,
+				D85E3E652DEBA49300F83575 /* RestaurantsViewController.swift */,
+				D85E3E672DEBA4BB00F83575 /* RestaurantsViewController.xib */,
+				D85E3E692DEBA4C900F83575 /* RestaurantsViewModel.swift */,
+				D85E3E6B2DEBA5A900F83575 /* RestaurantTableViewCell.swift */,
+				D85E3E6F2DEBB39700F83575 /* RestaurantsService.swift */,
+			);
+			path = Restaurants;
+			sourceTree = "<group>";
+		};
+		D85E3E642DEBA45300F83575 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E752DEBD27800F83575 /* UsersCoordinator.swift */,
+				D85E3E762DEBD27800F83575 /* UsersViewController.swift */,
+				D85E3E772DEBD27800F83575 /* UsersViewController.xib */,
+				D85E3E782DEBD27800F83575 /* UsersViewModel.swift */,
+				D85E3E792DEBD27800F83575 /* UserTableViewCell.swift */,
+				D85E3E7A2DEBD27800F83575 /* UsersService.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85E3E342DE90AAF00F83575 /* RegistrationViewController.xib in Resources */,
+				D85E3E7B2DEBD27800F83575 /* UsersViewController.xib in Resources */,
+				D85E3E682DEBA4BB00F83575 /* RestaurantsViewController.xib in Resources */,
 				D85E3E262DE8F0B800F83575 /* LoginViewController.xib in Resources */,
 				D85E3E272DE8F0B800F83575 /* Assets.xcassets in Resources */,
 				D85E3E292DE8F0B800F83575 /* LaunchScreen.storyboard in Resources */,
@@ -301,7 +361,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85E3E742DEBD11800F83575 /* BaseNavigationController.swift in Sources */,
+				D85E3E702DEBB39700F83575 /* RestaurantsService.swift in Sources */,
 				D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */,
+				D85E3E6A2DEBA4C900F83575 /* RestaurantsViewModel.swift in Sources */,
 				D85E3E522DEA4CED00F83575 /* User.swift in Sources */,
 				D85E3E622DEB9E9000F83575 /* UserManager.swift in Sources */,
 				D85E3E572DEB604A00F83575 /* BlockUIView.swift in Sources */,
@@ -311,9 +374,18 @@
 				D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */,
 				D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */,
 				D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */,
+				D85E3E7C2DEBD27800F83575 /* UserTableViewCell.swift in Sources */,
+				D85E3E7D2DEBD27800F83575 /* UsersViewModel.swift in Sources */,
+				D85E3E7E2DEBD27800F83575 /* UsersCoordinator.swift in Sources */,
+				D85E3E7F2DEBD27800F83575 /* UsersViewController.swift in Sources */,
+				D85E3E802DEBD27800F83575 /* UsersService.swift in Sources */,
 				D85E3E202DE8F0B800F83575 /* AuthCoordinator.swift in Sources */,
 				D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */,
 				D85E3E222DE8F0B800F83575 /* LoginViewModel.swift in Sources */,
+				D85E3E6E2DEBA5E900F83575 /* RestaurantsCoordinator.swift in Sources */,
+				D85E3E6C2DEBA5A900F83575 /* RestaurantTableViewCell.swift in Sources */,
+				D85E3E722DEBCB1200F83575 /* BaseTabBarController.swift in Sources */,
+				D85E3E662DEBA49300F83575 /* RestaurantsViewController.swift in Sources */,
 				D85E3E232DE8F0B800F83575 /* AppDelegate.swift in Sources */,
 				D85E3E242DE8F0B800F83575 /* SceneDelegate.swift in Sources */,
 				D85E3E3F2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift in Sources */,

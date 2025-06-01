@@ -77,7 +77,8 @@ final class LoginViewController: KeyboardResponsiveViewController {
             
             switch result {
             case .success:
-                view.backgroundColor = .green
+                // VM will handle the next step
+                break
             case .failure(let error):
                 ErrorHandler.showError(error, in: self)
             }

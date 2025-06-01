@@ -17,7 +17,7 @@ final class AppCoordinator: Coordinator {
         self.window = window
     }
     
-    func start() {
+    override func start() {
         startLoginFlow()
     }
     
@@ -38,7 +38,7 @@ extension AppCoordinator {
         removeAllChildCoordinators()
         removeAllViewControllers()
         
-        let tabCoordinator = TabBarCoordinator()
+        let tabCoordinator = TabBarCoordinator(in: window)
         addChildCoordinator(tabCoordinator)
         
         tabCoordinator.start()
