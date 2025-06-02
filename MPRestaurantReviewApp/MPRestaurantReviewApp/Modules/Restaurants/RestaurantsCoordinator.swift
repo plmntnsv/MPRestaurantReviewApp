@@ -60,15 +60,17 @@ final class RestaurantsCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func showAddRestaurant() {
+    func showAddRestaurant(screenType: AddRestaurantViewController.ScreenType) {
         let viewModel = AddRestaurantViewModel(service: restaurantService, coordinator: self)
         let viewController = AddRestaurantViewController()
+        viewController.screenType = screenType
         viewController.viewModel = viewModel
         
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func didFinishAddRestaurant() {
+        // TODO: notif
         restaurantService.hasPendingUpdates = true
         navigationController.popViewController(animated: true)
     }

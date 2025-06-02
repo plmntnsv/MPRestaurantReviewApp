@@ -30,21 +30,40 @@ final class AllReviewsViewController: BaseAppearanceViewController {
     
     private func setupTableView() {
         reviewsTableView.dataSource = self
+        reviewsTableView.delegate = self
         
         reviewsTableView.register(
             UINib(nibName: "\(ReviewTableViewCell.self)", bundle: nil),
             forCellReuseIdentifier: "\(ReviewTableViewCell.self)"
         )
-//        reviewsTableView.register(UITableViewCell.self , forCellReuseIdentifier: "reviewCell")
+        
+        reviewsTableView.register(
+            UINib(nibName: "\(LoadingTableViewCell.self)", bundle: nil),
+            forCellReuseIdentifier: "\(LoadingTableViewCell.self)"
+        )
     }
 }
 
 extension AllReviewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.reviews.count
+        if viewModel.reviews.isEmpty {
+            0
+        } else if viewModel.pagingIsComplete {
+            viewModel.reviews.count
+        } else {
+            viewModel.reviews.count + 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row <= viewModel.reviews.count - 1 else {
+            let cell = reviewsTableView.dequeueReusableCell(
+                withIdentifier: "\(LoadingTableViewCell.self)"
+            ) as! LoadingTableViewCell
+            
+            return cell
+        }
+        
         let cell = reviewsTableView.dequeueReusableCell(
             withIdentifier: "\(ReviewTableViewCell.self)"
         ) as! ReviewTableViewCell
@@ -64,5 +83,20 @@ extension AllReviewsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
+    }
+}
+
+extension AllReviewsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if cell is LoadingTableViewCell {
+            Task {
+                switch await viewModel.fetchReviews() {
+                case .success:
+                    reviewsTableView.reloadData()
+                case .failure(let error):
+                    ErrorHandler.showError(error, in: self)
+                }
+            }
+        }
     }
 }

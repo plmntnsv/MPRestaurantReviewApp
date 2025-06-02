@@ -70,6 +70,10 @@
 		D85E3EB82DEDC72700F83575 /* AddRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3EB52DEDC72700F83575 /* AddRestaurantViewController.swift */; };
 		D85E3EB92DEDC72700F83575 /* AddRestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3EB72DEDC72700F83575 /* AddRestaurantViewModel.swift */; };
 		D85E3EBA2DEDC72700F83575 /* AddRestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3EB62DEDC72700F83575 /* AddRestaurantViewController.xib */; };
+		D8B55A462DEDD0F200224B5F /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A442DEDD0F200224B5F /* LoadingTableViewCell.swift */; };
+		D8B55A472DEDD0F200224B5F /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */; };
+		D8B55A492DEE394E00224B5F /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */; };
+		D8B55A4B2DEE5A4F00224B5F /* Notification+DataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A4A2DEE5A4F00224B5F /* Notification+DataChange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +139,10 @@
 		D85E3EB52DEDC72700F83575 /* AddRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantViewController.swift; sourceTree = "<group>"; };
 		D85E3EB62DEDC72700F83575 /* AddRestaurantViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRestaurantViewController.xib; sourceTree = "<group>"; };
 		D85E3EB72DEDC72700F83575 /* AddRestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantViewModel.swift; sourceTree = "<group>"; };
+		D8B55A442DEDD0F200224B5F /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
+		D8B55A4A2DEE5A4F00224B5F /* Notification+DataChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+DataChange.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,8 +250,10 @@
 		D85E3E402DE9FB1900F83575 /* Shared UI */ = {
 			isa = PBXGroup;
 			children = (
+				D8B55A432DEDD0E400224B5F /* Cells */,
 				D85E3EB32DEDB79700F83575 /* Review View */,
 				D85E3E412DE9FB9E00F83575 /* PrimaryButton.swift */,
+				D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */,
 				D85E3E562DEB604A00F83575 /* BlockUIView.swift */,
 			);
 			path = "Shared UI";
@@ -253,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				D85E3E582DEB689200F83575 /* UIView+Utilities.swift */,
+				D8B55A4A2DEE5A4F00224B5F /* Notification+DataChange.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +422,15 @@
 			path = "Add Restaurant";
 			sourceTree = "<group>";
 		};
+		D8B55A432DEDD0E400224B5F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8B55A442DEDD0F200224B5F /* LoadingTableViewCell.swift */,
+				D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,6 +511,7 @@
 				D85E3E8F2DEC9D6E00F83575 /* RestaurantDetailsViewController.xib in Resources */,
 				D85E3EAB2DEDAB3600F83575 /* AllReviewsViewController.xib in Resources */,
 				D85E3EB02DEDABE100F83575 /* ReviewTableViewCell.xib in Resources */,
+				D8B55A472DEDD0F200224B5F /* LoadingTableViewCell.xib in Resources */,
 				D85E3EBA2DEDC72700F83575 /* AddRestaurantViewController.xib in Resources */,
 				D85E3E462DEA243100F83575 /* GoogleService-Info.plist in Resources */,
 			);
@@ -524,6 +545,8 @@
 				D85E3E7F2DEBD27800F83575 /* ProfileViewController.swift in Sources */,
 				D85E3E852DEC508000F83575 /* Review.swift in Sources */,
 				D85E3E802DEBD27800F83575 /* ProfileService.swift in Sources */,
+				D8B55A492DEE394E00224B5F /* PrimaryTextField.swift in Sources */,
+				D8B55A462DEDD0F200224B5F /* LoadingTableViewCell.swift in Sources */,
 				D85E3E932DECFDAE00F83575 /* ReviewView.swift in Sources */,
 				D85E3E202DE8F0B800F83575 /* AuthCoordinator.swift in Sources */,
 				D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */,
@@ -543,6 +566,7 @@
 				D85E3EA92DEDAB3200F83575 /* AllReviewsViewModel.swift in Sources */,
 				D85E3E3F2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift in Sources */,
 				D85E3E5D2DEB6D9700F83575 /* ErrorHandler.swift in Sources */,
+				D8B55A4B2DEE5A4F00224B5F /* Notification+DataChange.swift in Sources */,
 				D85E3E592DEB689200F83575 /* UIView+Utilities.swift in Sources */,
 				D85E3EA02DED24BA00F83575 /* AddReviewViewModel.swift in Sources */,
 				D85E3EA72DEDAB2B00F83575 /* AllReviewsViewController.swift in Sources */,

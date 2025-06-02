@@ -14,6 +14,7 @@ final class AllReviewsViewModel {
     private(set) var reviews: [Review]
     private(set) var restaurant: Restaurant
     private var lastReviewsDoc: DocumentSnapshot?
+    private(set) var pagingIsComplete = false
     
     init(
         restaurant: Restaurant,
@@ -29,7 +30,11 @@ final class AllReviewsViewModel {
     func fetchReviews() async -> Result<Void, Error> {
         switch await service.getAllReviews(for: restaurant.id!, startAfterDoc: lastReviewsDoc) {
         case .success(let result):
-            reviews = result.reviews
+            if result.reviews.isEmpty {
+                pagingIsComplete = true
+            } else {
+                reviews += result.reviews
+            }
             lastReviewsDoc = result.lastDocument
             return .success(())
         case .failure(let error):

@@ -24,7 +24,7 @@ final class LoginViewController: KeyboardResponsiveViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.text = "az@az.az"
+        emailTextField.text = "admin@admin.admin"
         passwordTextField.text = "123456"
         
         emailTextField.delegate = self

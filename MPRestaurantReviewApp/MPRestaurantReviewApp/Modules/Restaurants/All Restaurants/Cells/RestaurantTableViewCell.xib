@@ -19,28 +19,56 @@
                         <rect key="frame" x="8" y="4" width="377" height="180"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dul-ln-zXH">
-                                <rect key="frame" x="20" y="80" width="296" height="20.333333333333329"/>
+                                <rect key="frame" x="20" y="80" width="206" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klV-4J-tFk" userLabel="Rating Label">
-                                <rect key="frame" x="324" y="80" width="45" height="20.333333333333329"/>
+                                <rect key="frame" x="234" y="80" width="45" height="20.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="slX-Sb-gPJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="k60-pn-tsH">
+                                <rect key="frame" x="287" y="73" width="82" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hir-6K-OGz" userLabel="Edit Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Abp-yh-KhJ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" image="pencil" catalog="system"/>
+                                        <connections>
+                                            <action selector="didTapEditButton:" destination="jqx-1A-SYP" eventType="touchUpInside" id="N2e-Pi-HkY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rh1-oB-OKI" userLabel="Delete Button">
+                                        <rect key="frame" x="42" y="0.0" width="40" height="34.333333333333336"/>
+                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" image="trash" catalog="system"/>
+                                        <connections>
+                                            <action selector="didTapDeleteButton:" destination="jqx-1A-SYP" eventType="touchUpInside" id="c4h-dk-F6d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="klV-4J-tFk" firstAttribute="centerY" secondItem="8Hv-Qc-Lie" secondAttribute="centerY" id="1s0-bt-4sb"/>
                             <constraint firstItem="klV-4J-tFk" firstAttribute="leading" secondItem="dul-ln-zXH" secondAttribute="trailing" constant="8" id="5lu-3A-em6"/>
+                            <constraint firstAttribute="trailing" secondItem="k60-pn-tsH" secondAttribute="trailing" constant="8" id="8WE-ej-iKx"/>
+                            <constraint firstItem="k60-pn-tsH" firstAttribute="centerY" secondItem="8Hv-Qc-Lie" secondAttribute="centerY" id="CVE-4j-GM3"/>
                             <constraint firstItem="dul-ln-zXH" firstAttribute="centerY" secondItem="8Hv-Qc-Lie" secondAttribute="centerY" id="Jga-FJ-nMv"/>
-                            <constraint firstAttribute="trailing" secondItem="klV-4J-tFk" secondAttribute="trailing" constant="8" id="Zad-AF-x4i"/>
                             <constraint firstItem="dul-ln-zXH" firstAttribute="leading" secondItem="8Hv-Qc-Lie" secondAttribute="leading" constant="20" id="fRT-T1-VrG"/>
+                            <constraint firstAttribute="trailing" secondItem="klV-4J-tFk" secondAttribute="trailing" priority="999" constant="8" id="qUE-Ob-2Bp"/>
+                            <constraint firstItem="k60-pn-tsH" firstAttribute="leading" secondItem="klV-4J-tFk" secondAttribute="trailing" constant="8" id="yYJ-vA-3RW"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -55,10 +83,15 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <accessibility key="accessibilityConfiguration" identifier="restaurantCell"/>
             <connections>
+                <outlet property="actionButtonsStackView" destination="k60-pn-tsH" id="Z4C-Gc-Rb3"/>
                 <outlet property="ratingLabel" destination="klV-4J-tFk" id="Q2f-QM-3lk"/>
                 <outlet property="titleLabel" destination="dul-ln-zXH" id="fWo-hp-YRZ"/>
             </connections>
             <point key="canvasLocation" x="-361.06870229007632" y="-323.23943661971833"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+    </resources>
 </document>

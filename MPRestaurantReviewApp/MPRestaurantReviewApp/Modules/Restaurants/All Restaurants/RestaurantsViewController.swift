@@ -10,6 +10,7 @@ import UIKit
 
 final class RestaurantsViewController: BaseAppearanceViewController {
     @IBOutlet private weak var restaurantsTableView: UITableView!
+    @IBOutlet private weak var addNewContainerView: UIView?
     var viewModel: RestaurantsViewModel!
     
     // MARK: - Lifecycle
@@ -20,11 +21,20 @@ final class RestaurantsViewController: BaseAppearanceViewController {
         
         let blockingView = view.block()
         
+        if UserManager.shared.currentUser?.isAdmin == false {
+            addNewContainerView?.removeFromSuperview()
+        }
+        
         restaurantsTableView.delegate = self
         restaurantsTableView.dataSource = self
         restaurantsTableView.register(
             UINib(nibName: "\(RestaurantTableViewCell.self)", bundle: nil),
-            forCellReuseIdentifier: "restaurantCell"
+            forCellReuseIdentifier: "\(RestaurantTableViewCell.self)"
+        )
+        
+        restaurantsTableView.register(
+            UINib(nibName: "\(LoadingTableViewCell.self)", bundle: nil),
+            forCellReuseIdentifier: "\(LoadingTableViewCell.self)"
         )
         
         Task {
@@ -51,8 +61,6 @@ final class RestaurantsViewController: BaseAppearanceViewController {
     
     // MARK: - @IBAction
     @IBAction private func didTapAddNewRestaurant(_ sender: Any) {
-        
-        //TODO: verify admin
         viewModel.didTapAddButton()
     }
 }
@@ -60,18 +68,30 @@ final class RestaurantsViewController: BaseAppearanceViewController {
 // MARK: - UITableViewDataSource
 extension RestaurantsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.restaurants.count
+        if viewModel.restaurants.isEmpty {
+            0
+        } else if viewModel.pagingIsComplete {
+            viewModel.restaurants.count
+        } else {
+            viewModel.restaurants.count + 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row <= viewModel.restaurants.count - 1 else {
+            let cell = restaurantsTableView.dequeueReusableCell(
+                withIdentifier: "\(LoadingTableViewCell.self)"
+            ) as! LoadingTableViewCell
+            
+            return cell
+        }
+        
         let cell = restaurantsTableView.dequeueReusableCell(
-            withIdentifier: "restaurantCell"
+            withIdentifier: "\(RestaurantTableViewCell.self)"
         ) as! RestaurantTableViewCell
         
         cell.selectionStyle = .none
-        
-        cell.titleLabel.text = "\(viewModel.restaurants[indexPath.row].name)"
-        cell.ratingLabel.text = "\(viewModel.restaurants[indexPath.row].averageRating.asRating)"
+        cell.setup(with: viewModel.restaurants[indexPath.row], delegate: self)
         
         return cell
     }
@@ -83,7 +103,31 @@ extension RestaurantsViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension RestaurantsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if cell is LoadingTableViewCell {
+            Task {
+                switch await viewModel.getNextRestaurants() {
+                case .success:
+                    restaurantsTableView.reloadData()
+                case .failure(let error):
+                    ErrorHandler.showError(error, in: self)
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRestaurant(at: indexPath.row)
+    }
+}
+
+// MARK: - RestaurantTableViewCellDelegate
+extension RestaurantsViewController: RestaurantTableViewCellDelegate {
+    func restaurantCellDidTapEdit(_ restaurant: Restaurant) {
+        viewModel.didTapEditRestaurant(restaurant)
+    }
+    
+    func restaurantCellDidTapDelete(_ restaurant: Restaurant) {
+        viewModel.didTapDeleteRestaurant(restaurant)
     }
 }

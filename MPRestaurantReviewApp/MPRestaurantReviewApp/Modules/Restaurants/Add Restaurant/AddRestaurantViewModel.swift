@@ -25,6 +25,22 @@ final class AddRestaurantViewModel {
         }
     }
     
+    func editRestaurant(_ restaurant: Restaurant, newName: String) async -> Result<Restaurant, Error> {
+        var newRestaurant = restaurant
+        newRestaurant.name = newName
+        switch await service.editRestaurant(newRestaurant) {
+        case .success:
+            return .success(newRestaurant)
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    func didEditRestaurant(_ restaurant: Restaurant) {
+        // TODO: notif
+        coordinator.didFinishAddRestaurant()
+    }
+    
     func didAddRestaurant() {
         coordinator.didFinishAddRestaurant()
     }

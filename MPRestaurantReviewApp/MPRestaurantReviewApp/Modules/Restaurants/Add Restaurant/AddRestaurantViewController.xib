@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddRestaurantViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="S84-WB-zLQ" id="arW-6z-j9Z"/>
+                <outlet property="restaurantNameLabel" destination="jGB-rT-K9b" id="iDL-Ns-BBp"/>
                 <outlet property="restaurantNameTextField" destination="kfG-9Q-Odu" id="HgX-FD-9m6"/>
                 <outlet property="scrollView" destination="TCP-zV-njS" id="g7k-AZ-n7n"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wiz-Lu-fek"/>
@@ -35,7 +37,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfG-9Q-Odu">
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfG-9Q-Odu" customClass="PrimaryTextField" customModule="MPRestaurantReviewApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="20.333333333333314" width="353" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" textContentType="name"/>

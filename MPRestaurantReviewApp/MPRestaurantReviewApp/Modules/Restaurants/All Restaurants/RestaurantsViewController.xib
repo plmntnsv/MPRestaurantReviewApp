@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantsViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
+                <outlet property="addNewContainerView" destination="zbx-ZA-kg6" id="AWO-cy-50O"/>
                 <outlet property="restaurantsTableView" destination="gev-bt-gFr" id="V7P-Oo-EEk"/>
                 <outlet property="view" destination="iN0-l3-epB" id="EWP-ra-I6A"/>
             </connections>

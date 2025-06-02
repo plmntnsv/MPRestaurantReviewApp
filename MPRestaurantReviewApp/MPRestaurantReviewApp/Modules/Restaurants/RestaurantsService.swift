@@ -19,12 +19,12 @@ struct ReviewsSuccessDataResult {
 }
 
 final class RestaurantsService {
-    private let db = Firestore.firestore()
+    private let restaurantsDB = Firestore.firestore().collection("restaurants")
     var hasPendingUpdates = false
     
     func getRestaurant(withId id: String) async -> Result<Restaurant, Error> {
         do {
-            let document = try await db.collection("restaurants").document(id).getDocument()
+            let document = try await restaurantsDB.document(id).getDocument()
             let restaurant = try document.data(as: Restaurant.self)
             return .success(restaurant)
         } catch {
@@ -36,7 +36,18 @@ final class RestaurantsService {
         let newRestaurant = Restaurant(name: name, averageRating: 0, ratingsCount: 0)
         
         do {
-            try db.collection("restaurants").addDocument(from: newRestaurant)
+            try restaurantsDB.addDocument(from: newRestaurant)
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    func editRestaurant(_ restaurant: Restaurant) async -> Result<Void, Error> {
+        let restaurantRef = restaurantsDB.document(restaurant.id!)
+        
+        do {
+            try restaurantRef.setData(from: restaurant)
             return .success(())
         } catch {
             return .failure(error)
@@ -48,9 +59,7 @@ final class RestaurantsService {
         startAfterDoc: DocumentSnapshot? = nil
     ) async -> Result<RestaurantSuccessDataResult, Error> {
         do {
-            var restaurantsQuery = db.collection("restaurants")
-                .order(by: "averageRating", descending: true)
-                .limit(to: limit)
+            var restaurantsQuery = restaurantsDB.order(by: "averageRating", descending: true).limit(to: limit)
             
             if let lastDoc = startAfterDoc {
                 restaurantsQuery = restaurantsQuery.start(afterDocument: lastDoc)

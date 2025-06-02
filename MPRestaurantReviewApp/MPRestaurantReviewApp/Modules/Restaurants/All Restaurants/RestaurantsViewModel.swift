@@ -13,6 +13,7 @@ final class RestaurantsViewModel {
     private let coordinator: RestaurantsCoordinator
     private(set) var restaurants: [Restaurant] = []
     private var lastRestaurantsDoc: DocumentSnapshot?
+    private(set) var pagingIsComplete = false
     
     init(service: RestaurantsService, coordinator: RestaurantsCoordinator) {
         self.service = service
@@ -22,7 +23,12 @@ final class RestaurantsViewModel {
     func getNextRestaurants(limit: Int = 10) async -> Result<[Restaurant], Error> {
         switch await service.getAllRestaurants(limit: limit, startAfterDoc: lastRestaurantsDoc) {
         case .success(let restaurantsResult):
-            restaurants = restaurantsResult.restaurants
+            if restaurantsResult.restaurants.isEmpty {
+                pagingIsComplete = true
+            } else {
+                restaurants += restaurantsResult.restaurants
+            }
+            
             lastRestaurantsDoc = restaurantsResult.lastDocument
             return .success(restaurants)
         case .failure(let error):
@@ -50,6 +56,14 @@ final class RestaurantsViewModel {
     }
     
     func didTapAddButton() {
-        coordinator.showAddRestaurant()
+        coordinator.showAddRestaurant(screenType: .add)
+    }
+    
+    func didTapEditRestaurant(_ restaurant: Restaurant) {
+        coordinator.showAddRestaurant(screenType: .edit(restaurant))
+    }
+    
+    func didTapDeleteRestaurant(_ restaurant: Restaurant) {
+        
     }
 }
