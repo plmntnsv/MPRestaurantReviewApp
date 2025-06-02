@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 final class RestaurantTableViewCell: UITableViewCell {
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    
 }

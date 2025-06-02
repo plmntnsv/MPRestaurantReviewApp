@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 final class RestaurantDetailsViewController: BaseAppearanceViewController {
+    private enum Constant {
+        static let latestReviewTitle: String = "Latest review"
+        static let highestReviewTitle: String = "Highest review"
+        static let lowestReviewTitle: String = "Lowest review"
+        static let noDataText: String = "N/A"
+    }
+    
     @IBOutlet private weak var restaurantNameLabel: UILabel!
     @IBOutlet private weak var restaurantRating: UILabel!
     @IBOutlet private weak var latestReviewTitleLabel: UILabel!
@@ -33,25 +40,43 @@ final class RestaurantDetailsViewController: BaseAppearanceViewController {
     }
     
     @IBAction func seeAllButtonTapped(_ sender: Any) {
-        print("See all reviews tapped")
+        viewModel.didTapSeeAllReviews()
     }
     
     // MARK: - Private
     private func setupUI() {
         restaurantNameLabel.text = viewModel.restaurant.name
-        restaurantRating.text = String(viewModel.restaurant.avgRating)
+        restaurantRating.text = String(viewModel.restaurant.averageRating.asRating)
         
-        if !setupReviewView(in: latestReviewContainerView, with: viewModel.restaurant.latestReview) {
-            latestReviewTitleLabel.text = "Latest review: N/A"
-        }
+        // Latest review setup
+        let didSetupLatest = setupReviewView(
+            in: latestReviewContainerView,
+            with: viewModel.restaurant.latestReview
+        )
+        let latestTitleText = didSetupLatest ?
+            Constant.latestReviewTitle :
+            "\(Constant.latestReviewTitle): \(Constant.noDataText)"
+        latestReviewTitleLabel.text = latestTitleText
         
-        if !setupReviewView(in: highestReviewContainerView, with: viewModel.restaurant.highestReview) {
-            highestReviewTitleLabel.text = "Highest review: N/A"
-        }
+        // Highest review setup
+        let didSetupHighest = setupReviewView(
+            in: highestReviewContainerView,
+            with: viewModel.restaurant.highestReview
+        )
+        let highestTitleText = didSetupHighest ?
+            Constant.highestReviewTitle :
+            "\(Constant.highestReviewTitle): \(Constant.noDataText)"
+        highestReviewTitleLabel.text = highestTitleText
         
-        if !setupReviewView(in: lowestReviewContainerView, with: viewModel.restaurant.lowestReview) {
-            lowestReviewTitleLabel.text = "Lowest review: N/A"
-        }
+        // Lowest review setup
+        let didSetupLowest = setupReviewView(
+            in: lowestReviewContainerView,
+            with: viewModel.restaurant.lowestReview
+        )
+        let lowestTitleText = didSetupLowest ?
+            Constant.lowestReviewTitle :
+            "\(Constant.lowestReviewTitle): \(Constant.noDataText)"
+        lowestReviewTitleLabel.text = lowestTitleText
     }
     
     private func setupReviewView(in container: UIView, with review: Review?) -> Bool {
@@ -60,19 +85,13 @@ final class RestaurantDetailsViewController: BaseAppearanceViewController {
             return false
         }
         
-        let reviewView = Bundle.main.loadNibNamed(
-            "\(ReviewView.self)",
-            owner: self,
-            options: nil
-        )![0] as! ReviewView
-        container.addSubview(reviewView)
-        reviewView.attachEdgeAnchors(to: container)
+        let reviewView = ReviewView.load(in: container)
         
         reviewView.setup(
-            with: review.rating,
+            with: review.rating.asRating,
             text: review.comment,
             authorName: review.author,
-            visited: review.createdAt
+            visited: review.visitDate
         )
         
         return true

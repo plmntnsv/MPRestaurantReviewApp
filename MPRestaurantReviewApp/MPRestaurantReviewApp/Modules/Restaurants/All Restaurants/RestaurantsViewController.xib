@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gev-bt-gFr">
-                    <rect key="frame" x="20" y="118" width="353" height="666"/>
+                <tableView clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gev-bt-gFr">
+                    <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbx-ZA-kg6" userLabel="Add New Container">
@@ -31,6 +31,9 @@
                             <color key="tintColor" red="1" green="0.059314782480000001" blue="0.23089298480000001" alpha="0.89261798469999998" colorSpace="custom" customColorSpace="displayP3"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="plus" catalog="system"/>
+                            <connections>
+                                <action selector="didTapAddNewRestaurant:" destination="-1" eventType="touchUpInside" id="Db3-pr-K3P"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,7 +59,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zbx-ZA-kg6" secondAttribute="trailing" constant="20" id="FXZ-w4-yOy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zbx-ZA-kg6" secondAttribute="bottom" constant="20" id="Qiy-ra-gXe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gev-bt-gFr" secondAttribute="bottom" id="hWF-O9-cMh"/>
-                <constraint firstItem="gev-bt-gFr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="hcz-ln-Vny"/>
+                <constraint firstItem="gev-bt-gFr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hcz-ln-Vny"/>
                 <constraint firstItem="gev-bt-gFr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jcW-Q2-ThR"/>
             </constraints>
             <point key="canvasLocation" x="-103" y="20"/>

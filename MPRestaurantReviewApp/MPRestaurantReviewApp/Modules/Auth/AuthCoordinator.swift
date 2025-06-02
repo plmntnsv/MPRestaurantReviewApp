@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 final class AuthCoordinator: Coordinator {
-    private var navigationController: UINavigationController
+    private let navigationController: UINavigationController
+    private let window: UIWindow
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, in window: UIWindow) {
         self.navigationController = navigationController
+        self.window = window
     }
 
     override func start() {
@@ -24,6 +26,7 @@ final class AuthCoordinator: Coordinator {
         let viewController = LoginViewController(nibName: "\(LoginViewController.self)", bundle: nil)
         viewController.viewModel = viewModel
         
+        window.rootViewController = navigationController
         navigationController.pushViewController(viewController, animated: false)
     }
     

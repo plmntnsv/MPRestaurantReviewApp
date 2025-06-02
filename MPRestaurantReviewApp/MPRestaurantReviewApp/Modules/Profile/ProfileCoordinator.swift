@@ -23,4 +23,10 @@ final class ProfileCoordinator: Coordinator {
         
         navigationController.pushViewController(viewController, animated: false)
     }
+    
+    func userDidLogout() {
+        DispatchQueue.main.async {
+            self.appCoordinator.startLoginFlow()
+        }
+    }
 }

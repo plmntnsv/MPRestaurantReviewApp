@@ -11,7 +11,8 @@ import FirebaseFirestore
 struct Restaurant: Codable, Identifiable {
     var id: String?
     var name: String
-    var avgRating: Double
+    var averageRating: Double
+    var ratingsCount: Int
     var highestReview: Review?
     var lowestReview: Review?
     var latestReview: Review?

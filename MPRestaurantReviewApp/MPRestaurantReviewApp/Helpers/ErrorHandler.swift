@@ -9,8 +9,9 @@ import UIKit
 
 enum AppError: LocalizedError {
     case userNotFound
-    case badInput(additionalInfo: String?)
+    case badInput(additionalInfo: String? = nil)
     case decodingError
+    case networkFetchError
     case unknown
     
     var error: NSError {
@@ -29,6 +30,8 @@ enum AppError: LocalizedError {
             "BadInputDomain"
         case .decodingError:
             "DecodingErrorDomain"
+        case .networkFetchError:
+            "NetworkErrorDomain"
         case .unknown:
             "GenericErrorDomain"
         }
@@ -42,6 +45,8 @@ enum AppError: LocalizedError {
             1001
         case .decodingError:
             1002
+        case .networkFetchError:
+            1003
         case .unknown:
             1999
         }
@@ -55,6 +60,8 @@ enum AppError: LocalizedError {
             "Invalid input.\n\(additionalInfo ?? "")"
         case .decodingError:
             "Failed to decode data"
+        case .networkFetchError:
+            "Something went wrong while fetching data"
         case .unknown:
             "Something went wrong"
         }

@@ -23,7 +23,7 @@ final class AddReviewViewController: KeyboardResponsiveViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Write a Review"
+        navigationItem.title = viewModel.restaurant.name
         commentTextView.delegate = self
         commentTextView.layer.cornerRadius = 8
         rateSlider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
@@ -45,19 +45,21 @@ final class AddReviewViewController: KeyboardResponsiveViewController {
         
         let blockedView = view.block()
         
-        switch viewModel.didTapAdd(rating: rating, comment: comment, visitDate: datePicker.date) {
-        case .success:
-            let alert = UIAlertController(title: "Success", message: "Review added!", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                self?.viewModel.finishAddingReview()
+        Task {
+            switch await viewModel.didTapAdd(rating: rating, comment: comment, visitDate: datePicker.date) {
+            case .success:
+                let alert = UIAlertController(title: "Success", message: "Review added!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                    self?.viewModel.finishAddingReview()
+                }
+                alert.addAction(okAction)
+                present(alert, animated: true)
+                
+                break
+            case .failure(let error):
+                blockedView.removeFromSuperview()
+                ErrorHandler.showError(error, in: self)
             }
-            alert.addAction(okAction)
-            present(alert, animated: true)
-
-            break
-        case .failure(let error):
-            blockedView.removeFromSuperview()
-            ErrorHandler.showError(error, in: self)
         }
     }
 }

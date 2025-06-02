@@ -19,8 +19,8 @@ final class RestaurantsViewModel {
         self.coordinator = coordinator
     }
     
-    func getNextRestaurants() async -> Result<[Restaurant], Error> {
-        switch await service.getAllRestaurants(startAfterDoc: lastRestaurantsDoc) {
+    func getNextRestaurants(limit: Int = 10) async -> Result<[Restaurant], Error> {
+        switch await service.getAllRestaurants(limit: limit, startAfterDoc: lastRestaurantsDoc) {
         case .success(let restaurantsResult):
             restaurants = restaurantsResult.restaurants
             lastRestaurantsDoc = restaurantsResult.lastDocument
@@ -30,7 +30,26 @@ final class RestaurantsViewModel {
         }
     }
     
+    func refreshRestaurantsIfNeeded() async -> Bool {
+        guard service.hasPendingUpdates else {
+            return false
+        }
+        
+        lastRestaurantsDoc = nil
+        switch await getNextRestaurants(limit: restaurants.count) {
+        case .success:
+            service.hasPendingUpdates = false
+            return true
+        case .failure:
+            return false
+        }
+    }
+    
     func didSelectRestaurant(at index: Int) {
         coordinator.showDetails(for: restaurants[index])
+    }
+    
+    func didTapAddButton() {
+        coordinator.showAddRestaurant()
     }
 }

@@ -59,7 +59,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjg-Ik-EFq">
-                    <rect key="frame" x="10" y="38.666666666666671" width="378" height="193.33333333333331"/>
+                    <rect key="frame" x="0.0" y="36.666666666666671" width="388" height="195.33333333333331"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -73,8 +73,8 @@
                 <constraint firstItem="YLe-2C-RQM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0pM-kL-gky"/>
                 <constraint firstItem="YLe-2C-RQM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IeP-eQ-X9t"/>
                 <constraint firstAttribute="bottom" secondItem="Bjg-Ik-EFq" secondAttribute="bottom" id="ltE-C9-lwF"/>
-                <constraint firstItem="Bjg-Ik-EFq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="n17-KR-63U"/>
-                <constraint firstItem="Bjg-Ik-EFq" firstAttribute="top" secondItem="YLe-2C-RQM" secondAttribute="bottom" constant="4" id="rWe-Si-2ta"/>
+                <constraint firstItem="Bjg-Ik-EFq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="n17-KR-63U"/>
+                <constraint firstItem="Bjg-Ik-EFq" firstAttribute="top" secondItem="YLe-2C-RQM" secondAttribute="bottom" constant="2" id="rWe-Si-2ta"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bjg-Ik-EFq" secondAttribute="trailing" id="vr6-pi-4ct"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -27,6 +27,6 @@ final class RestaurantDetailsViewModel {
     }
     
     func didTapSeeAllReviews() {
-        
+        coordinator.showAllReviews(for: restaurant)
     }
 }

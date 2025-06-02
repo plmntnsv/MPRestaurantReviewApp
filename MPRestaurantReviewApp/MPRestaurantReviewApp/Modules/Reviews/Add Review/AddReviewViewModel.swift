@@ -23,9 +23,10 @@ final class AddReviewViewModel {
         self.coordinator = coordinator
     }
     
-    func didTapAdd(rating: Double, comment: String, visitDate: Date) -> Result<Void, Error> {
+    func didTapAdd(rating: Double, comment: String, visitDate: Date) async -> Result<Void, Error> {
         let currentUser = UserManager.shared.currentUser!
         let review = Review(
+            restaurantId: restaurant.id!,
             userId: currentUser.id!,
             author: "\(currentUser.firstName) \(currentUser.lastName)",
             rating: rating,
@@ -34,8 +35,8 @@ final class AddReviewViewModel {
             createdAt: Date.now
         )
         
-        switch service.addReview(review, restaurantId: restaurant.id!) {
-            
+        // service.addReview(review, restaurantId: restaurant.id!)
+        switch await service.addReviewToRestaurant(review, to: restaurant) {
         case .success:
             return .success(())
         case .failure(let error):
