@@ -29,7 +29,7 @@ class BaseAppearanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.screenBG
+        view.backgroundColor = UIColor.backgroundColor2
         navigationController?.navigationBar.tintColor = UIColor.screenFG
         
         navigationItem.standardAppearance = navAppearance

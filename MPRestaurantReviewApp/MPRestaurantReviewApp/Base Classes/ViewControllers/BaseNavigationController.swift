@@ -12,8 +12,8 @@ class BaseNavigationController: UINavigationController {
     private var appearance: UINavigationBarAppearance {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = .screenBG
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.screenFG]
+        appearance.backgroundColor = .backgroundColor2
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundImage = nil
         
         return appearance
@@ -23,8 +23,16 @@ class BaseNavigationController: UINavigationController {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(
             title: nil,
-            image: UIImage(systemName: tabBarImage)?.withTintColor(.white, renderingMode: .alwaysOriginal),
-            selectedImage: UIImage(systemName: selectedTabBarImage)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            image: UIImage(
+                systemName: tabBarImage)?.withTintColor(
+                    .white,
+                    renderingMode: .alwaysOriginal
+                ),
+            selectedImage: UIImage(
+                systemName: selectedTabBarImage)?.withTintColor(
+                    .white,
+                    renderingMode: .alwaysOriginal
+                )
         )
     }
     

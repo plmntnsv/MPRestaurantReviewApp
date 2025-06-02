@@ -18,11 +18,24 @@ class PrimaryButton: UIButton {
         super.init(coder: coder)
         setupStyle()
     }
+    
     private func setupStyle() {
-        backgroundColor = .systemPink
-        setTitleColor(.screenFG, for: .normal)
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
+        var newConfig = UIButton.Configuration.filled()
+        newConfig.baseBackgroundColor = .systemPink
+        newConfig.baseForegroundColor = .white
+        newConfig.cornerStyle = .medium
+        newConfig.contentInsets = NSDirectionalEdgeInsets(
+            top: 10,
+            leading: 10,
+            bottom: 10,
+            trailing: 10
+        )
+        configuration = newConfig
+        configuration?.titleTextAttributesTransformer =
+            UIConfigurationTextAttributesTransformer { inc in
+                var out = inc
+                out.font = .systemFont(ofSize: 16, weight: .semibold)
+                return out
+            }
     }
 }

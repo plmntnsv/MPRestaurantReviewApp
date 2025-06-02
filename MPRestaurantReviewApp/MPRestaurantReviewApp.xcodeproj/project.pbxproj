@@ -43,12 +43,22 @@
 		D85E3E702DEBB39700F83575 /* RestaurantsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E6F2DEBB39700F83575 /* RestaurantsService.swift */; };
 		D85E3E722DEBCB1200F83575 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E712DEBCB1200F83575 /* BaseTabBarController.swift */; };
 		D85E3E742DEBD11800F83575 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E732DEBD11800F83575 /* BaseNavigationController.swift */; };
-		D85E3E7B2DEBD27800F83575 /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E772DEBD27800F83575 /* UsersViewController.xib */; };
-		D85E3E7C2DEBD27800F83575 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E792DEBD27800F83575 /* UserTableViewCell.swift */; };
-		D85E3E7D2DEBD27800F83575 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E782DEBD27800F83575 /* UsersViewModel.swift */; };
-		D85E3E7E2DEBD27800F83575 /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E752DEBD27800F83575 /* UsersCoordinator.swift */; };
-		D85E3E7F2DEBD27800F83575 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E762DEBD27800F83575 /* UsersViewController.swift */; };
-		D85E3E802DEBD27800F83575 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E7A2DEBD27800F83575 /* UsersService.swift */; };
+		D85E3E7B2DEBD27800F83575 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E772DEBD27800F83575 /* ProfileViewController.xib */; };
+		D85E3E7D2DEBD27800F83575 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E782DEBD27800F83575 /* ProfileViewModel.swift */; };
+		D85E3E7E2DEBD27800F83575 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E752DEBD27800F83575 /* ProfileCoordinator.swift */; };
+		D85E3E7F2DEBD27800F83575 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E762DEBD27800F83575 /* ProfileViewController.swift */; };
+		D85E3E802DEBD27800F83575 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E7A2DEBD27800F83575 /* ProfileService.swift */; };
+		D85E3E822DEC504500F83575 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E812DEC504500F83575 /* Restaurant.swift */; };
+		D85E3E852DEC508000F83575 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E842DEC508000F83575 /* Review.swift */; };
+		D85E3E892DEC658E00F83575 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E882DEC658E00F83575 /* RestaurantTableViewCell.xib */; };
+		D85E3E8B2DEC9D5600F83575 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E8A2DEC9D5600F83575 /* RestaurantDetailsViewController.swift */; };
+		D85E3E8D2DEC9D6300F83575 /* RestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E8C2DEC9D6300F83575 /* RestaurantDetailsViewModel.swift */; };
+		D85E3E8F2DEC9D6E00F83575 /* RestaurantDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E8E2DEC9D6E00F83575 /* RestaurantDetailsViewController.xib */; };
+		D85E3E932DECFDAE00F83575 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E922DECFDAE00F83575 /* ReviewView.swift */; };
+		D85E3E952DECFDB300F83575 /* ReviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E942DECFDB300F83575 /* ReviewView.xib */; };
+		D85E3E992DED21F700F83575 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E982DED21F700F83575 /* ReviewService.swift */; };
+		D85E3E9C2DED231800F83575 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */; };
+		D85E3E9E2DED233C00F83575 /* AddReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,12 +97,22 @@
 		D85E3E6F2DEBB39700F83575 /* RestaurantsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsService.swift; sourceTree = "<group>"; };
 		D85E3E712DEBCB1200F83575 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		D85E3E732DEBD11800F83575 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		D85E3E752DEBD27800F83575 /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
-		D85E3E762DEBD27800F83575 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
-		D85E3E772DEBD27800F83575 /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
-		D85E3E782DEBD27800F83575 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
-		D85E3E792DEBD27800F83575 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		D85E3E7A2DEBD27800F83575 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		D85E3E752DEBD27800F83575 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		D85E3E762DEBD27800F83575 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D85E3E772DEBD27800F83575 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		D85E3E782DEBD27800F83575 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		D85E3E7A2DEBD27800F83575 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		D85E3E812DEC504500F83575 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		D85E3E842DEC508000F83575 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		D85E3E882DEC658E00F83575 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		D85E3E8A2DEC9D5600F83575 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
+		D85E3E8C2DEC9D6300F83575 /* RestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
+		D85E3E8E2DEC9D6E00F83575 /* RestaurantDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantDetailsViewController.xib; sourceTree = "<group>"; };
+		D85E3E922DECFDAE00F83575 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		D85E3E942DECFDB300F83575 /* ReviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewView.xib; sourceTree = "<group>"; };
+		D85E3E982DED21F700F83575 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
+		D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
+		D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddReviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +170,8 @@
 		D85E3E132DE8F0B800F83575 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D85E3E642DEBA45300F83575 /* Users */,
+				D85E3E642DEBA45300F83575 /* Profile */,
+				D85E3E962DED07DA00F83575 /* Reviews */,
 				D85E3E632DEBA44000F83575 /* Restaurants */,
 				D85E3E112DE8F0B800F83575 /* Auth */,
 			);
@@ -254,26 +275,83 @@
 			isa = PBXGroup;
 			children = (
 				D85E3E6D2DEBA5E900F83575 /* RestaurantsCoordinator.swift */,
-				D85E3E652DEBA49300F83575 /* RestaurantsViewController.swift */,
-				D85E3E672DEBA4BB00F83575 /* RestaurantsViewController.xib */,
-				D85E3E692DEBA4C900F83575 /* RestaurantsViewModel.swift */,
-				D85E3E6B2DEBA5A900F83575 /* RestaurantTableViewCell.swift */,
 				D85E3E6F2DEBB39700F83575 /* RestaurantsService.swift */,
+				D85E3E812DEC504500F83575 /* Restaurant.swift */,
+				D85E3E862DEC512700F83575 /* All Restaurants */,
+				D85E3E872DEC514600F83575 /* Restaurant Details */,
 			);
 			path = Restaurants;
 			sourceTree = "<group>";
 		};
-		D85E3E642DEBA45300F83575 /* Users */ = {
+		D85E3E642DEBA45300F83575 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D85E3E752DEBD27800F83575 /* UsersCoordinator.swift */,
-				D85E3E762DEBD27800F83575 /* UsersViewController.swift */,
-				D85E3E772DEBD27800F83575 /* UsersViewController.xib */,
-				D85E3E782DEBD27800F83575 /* UsersViewModel.swift */,
-				D85E3E792DEBD27800F83575 /* UserTableViewCell.swift */,
-				D85E3E7A2DEBD27800F83575 /* UsersService.swift */,
+				D85E3E752DEBD27800F83575 /* ProfileCoordinator.swift */,
+				D85E3E7A2DEBD27800F83575 /* ProfileService.swift */,
+				D85E3E762DEBD27800F83575 /* ProfileViewController.swift */,
+				D85E3E772DEBD27800F83575 /* ProfileViewController.xib */,
+				D85E3E782DEBD27800F83575 /* ProfileViewModel.swift */,
 			);
-			path = Users;
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D85E3E862DEC512700F83575 /* All Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E912DECE5A100F83575 /* Cells */,
+				D85E3E652DEBA49300F83575 /* RestaurantsViewController.swift */,
+				D85E3E672DEBA4BB00F83575 /* RestaurantsViewController.xib */,
+				D85E3E692DEBA4C900F83575 /* RestaurantsViewModel.swift */,
+			);
+			path = "All Restaurants";
+			sourceTree = "<group>";
+		};
+		D85E3E872DEC514600F83575 /* Restaurant Details */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E8A2DEC9D5600F83575 /* RestaurantDetailsViewController.swift */,
+				D85E3E8C2DEC9D6300F83575 /* RestaurantDetailsViewModel.swift */,
+				D85E3E8E2DEC9D6E00F83575 /* RestaurantDetailsViewController.xib */,
+			);
+			path = "Restaurant Details";
+			sourceTree = "<group>";
+		};
+		D85E3E912DECE5A100F83575 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E6B2DEBA5A900F83575 /* RestaurantTableViewCell.swift */,
+				D85E3E882DEC658E00F83575 /* RestaurantTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D85E3E962DED07DA00F83575 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E9A2DED221E00F83575 /* Shared UI */,
+				D85E3E982DED21F700F83575 /* ReviewService.swift */,
+				D85E3E842DEC508000F83575 /* Review.swift */,
+				D85E3E972DED21E800F83575 /* Add Review */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		D85E3E972DED21E800F83575 /* Add Review */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */,
+				D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */,
+			);
+			path = "Add Review";
+			sourceTree = "<group>";
+		};
+		D85E3E9A2DED221E00F83575 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				D85E3E922DECFDAE00F83575 /* ReviewView.swift */,
+				D85E3E942DECFDB300F83575 /* ReviewView.xib */,
+			);
+			path = "Shared UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,12 +422,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85E3E342DE90AAF00F83575 /* RegistrationViewController.xib in Resources */,
-				D85E3E7B2DEBD27800F83575 /* UsersViewController.xib in Resources */,
+				D85E3E7B2DEBD27800F83575 /* ProfileViewController.xib in Resources */,
+				D85E3E9E2DED233C00F83575 /* AddReviewViewController.xib in Resources */,
 				D85E3E682DEBA4BB00F83575 /* RestaurantsViewController.xib in Resources */,
 				D85E3E262DE8F0B800F83575 /* LoginViewController.xib in Resources */,
+				D85E3E892DEC658E00F83575 /* RestaurantTableViewCell.xib in Resources */,
+				D85E3E952DECFDB300F83575 /* ReviewView.xib in Resources */,
 				D85E3E272DE8F0B800F83575 /* Assets.xcassets in Resources */,
 				D85E3E292DE8F0B800F83575 /* LaunchScreen.storyboard in Resources */,
 				D85E3E302DE9093E00F83575 /* Main.storyboard in Resources */,
+				D85E3E8F2DEC9D6E00F83575 /* RestaurantDetailsViewController.xib in Resources */,
 				D85E3E462DEA243100F83575 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,21 +449,27 @@
 				D85E3E6A2DEBA4C900F83575 /* RestaurantsViewModel.swift in Sources */,
 				D85E3E522DEA4CED00F83575 /* User.swift in Sources */,
 				D85E3E622DEB9E9000F83575 /* UserManager.swift in Sources */,
+				D85E3E8B2DEC9D5600F83575 /* RestaurantDetailsViewController.swift in Sources */,
 				D85E3E572DEB604A00F83575 /* BlockUIView.swift in Sources */,
 				D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */,
 				D85E3E422DE9FB9E00F83575 /* PrimaryButton.swift in Sources */,
 				D85E3E3B2DE9DB7500F83575 /* BaseAppearanceViewController.swift in Sources */,
+				D85E3E8D2DEC9D6300F83575 /* RestaurantDetailsViewModel.swift in Sources */,
 				D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */,
 				D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */,
 				D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */,
-				D85E3E7C2DEBD27800F83575 /* UserTableViewCell.swift in Sources */,
-				D85E3E7D2DEBD27800F83575 /* UsersViewModel.swift in Sources */,
-				D85E3E7E2DEBD27800F83575 /* UsersCoordinator.swift in Sources */,
-				D85E3E7F2DEBD27800F83575 /* UsersViewController.swift in Sources */,
-				D85E3E802DEBD27800F83575 /* UsersService.swift in Sources */,
+				D85E3E7D2DEBD27800F83575 /* ProfileViewModel.swift in Sources */,
+				D85E3E7E2DEBD27800F83575 /* ProfileCoordinator.swift in Sources */,
+				D85E3E7F2DEBD27800F83575 /* ProfileViewController.swift in Sources */,
+				D85E3E852DEC508000F83575 /* Review.swift in Sources */,
+				D85E3E802DEBD27800F83575 /* ProfileService.swift in Sources */,
+				D85E3E932DECFDAE00F83575 /* ReviewView.swift in Sources */,
 				D85E3E202DE8F0B800F83575 /* AuthCoordinator.swift in Sources */,
 				D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */,
+				D85E3E822DEC504500F83575 /* Restaurant.swift in Sources */,
+				D85E3E9C2DED231800F83575 /* AddReviewViewController.swift in Sources */,
 				D85E3E222DE8F0B800F83575 /* LoginViewModel.swift in Sources */,
+				D85E3E992DED21F700F83575 /* ReviewService.swift in Sources */,
 				D85E3E6E2DEBA5E900F83575 /* RestaurantsCoordinator.swift in Sources */,
 				D85E3E6C2DEBA5A900F83575 /* RestaurantTableViewCell.swift in Sources */,
 				D85E3E722DEBCB1200F83575 /* BaseTabBarController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  UsersCoordinator.swift
+//  ProfileCoordinator.swift
 //  MPRestaurantReviewApp
 //
 //  Created by Plamen Atanasov on 1.06.25.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class UsersCoordinator: Coordinator {
+final class ProfileCoordinator: Coordinator {
     private var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -16,9 +16,9 @@ final class UsersCoordinator: Coordinator {
     }
     
     override func start() {
-        let service = UsersService()
-        let viewModel = UsersViewModel(service: service, coordinator: self)
-        let viewController = UsersViewController()
+        let service = ProfileService()
+        let viewModel = ProfileViewModel(service: service, coordinator: self)
+        let viewController = ProfileViewController()
         viewController.viewModel = viewModel
         
         navigationController.pushViewController(viewController, animated: false)

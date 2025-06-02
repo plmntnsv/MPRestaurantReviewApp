@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 
 final class RegistrationViewModel {
-    private weak var coordinator: AuthCoordinator!
+    private var coordinator: AuthCoordinator
     private let service: AuthService
     
     init(coordinator: AuthCoordinator, service: AuthService) {

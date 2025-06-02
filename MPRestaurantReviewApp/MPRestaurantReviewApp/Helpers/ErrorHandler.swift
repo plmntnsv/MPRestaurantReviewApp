@@ -10,6 +10,7 @@ import UIKit
 enum AppError: LocalizedError {
     case userNotFound
     case badInput(additionalInfo: String?)
+    case decodingError
     case unknown
     
     var error: NSError {
@@ -26,6 +27,8 @@ enum AppError: LocalizedError {
             "AuthErrorDomain"
         case .badInput:
             "BadInputDomain"
+        case .decodingError:
+            "DecodingErrorDomain"
         case .unknown:
             "GenericErrorDomain"
         }
@@ -37,6 +40,8 @@ enum AppError: LocalizedError {
             1000
         case .badInput:
             1001
+        case .decodingError:
+            1002
         case .unknown:
             1999
         }
@@ -48,6 +53,8 @@ enum AppError: LocalizedError {
             "User does not exist"
         case .badInput(let additionalInfo):
             "Invalid input.\n\(additionalInfo ?? "")"
+        case .decodingError:
+            "Failed to decode data"
         case .unknown:
             "Something went wrong"
         }

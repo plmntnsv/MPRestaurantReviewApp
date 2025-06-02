@@ -24,7 +24,6 @@ class TabBarCoordinator: Coordinator {
     }
     
     private func initializeTabs() -> [UIViewController] {
-        // TODO: Move these outside the coordinator
         // Restaurants tab
         let restaurantsNav = BaseNavigationController(
             tabBarImage: "building.2",
@@ -35,14 +34,14 @@ class TabBarCoordinator: Coordinator {
         restaurantsCoordinator.start()
         
         // Users tab
-        let usersNav = BaseNavigationController(
-            tabBarImage: "person.2",
-            selectedTabBarImage: "person.2.fill"
+        let profileNav = BaseNavigationController(
+            tabBarImage: "person",
+            selectedTabBarImage: "person.fill"
         )
-        let usersCoordinator = UsersCoordinator(navigationController: usersNav)
-        addChildCoordinator(usersCoordinator)
-        usersCoordinator.start()
+        let profileCoordinator = ProfileCoordinator(navigationController: profileNav)
+        addChildCoordinator(profileCoordinator)
+        profileCoordinator.start()
         
-        return [restaurantsNav, usersNav]
+        return [restaurantsNav, profileNav]
     }
 }

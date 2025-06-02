@@ -8,7 +8,7 @@
 import Foundation
 
 final class LoginViewModel {
-    private weak var coordinator: AuthCoordinator!
+    private let coordinator: AuthCoordinator
     private let service: AuthService
     
     init(coordinator: AuthCoordinator, service: AuthService) {

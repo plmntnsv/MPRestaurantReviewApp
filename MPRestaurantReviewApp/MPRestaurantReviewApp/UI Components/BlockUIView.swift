@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-public final class BlockUIView: UIView {
-    public override init(frame: CGRect) {
+final class BlockUIView: UIView {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
-    public required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

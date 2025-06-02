@@ -13,6 +13,6 @@ class BaseTabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBar.isTranslucent = false
-        tabBar.backgroundColor = UIColor.screenBG
+        tabBar.backgroundColor = UIColor.backgroundColor1
     }
 }

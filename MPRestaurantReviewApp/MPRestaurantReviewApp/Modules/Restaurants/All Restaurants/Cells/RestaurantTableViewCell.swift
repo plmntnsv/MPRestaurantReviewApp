@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 final class RestaurantTableViewCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
     
 }
