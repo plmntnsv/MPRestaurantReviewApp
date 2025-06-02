@@ -10,10 +10,13 @@ import UIKit
 
 final class RestaurantDetailsViewController: BaseAppearanceViewController {
     @IBOutlet private weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var restaurantRating: UILabel!
-    @IBOutlet weak var latestReviewContainerView: UIView!
-    @IBOutlet weak var highestReviewContainerView: UIView!
-    @IBOutlet weak var lowestReviewContainerView: UIView!
+    @IBOutlet private weak var restaurantRating: UILabel!
+    @IBOutlet private weak var latestReviewTitleLabel: UILabel!
+    @IBOutlet private weak var lowestReviewTitleLabel: UILabel!
+    @IBOutlet private weak var highestReviewTitleLabel: UILabel!
+    @IBOutlet private weak var latestReviewContainerView: UIView!
+    @IBOutlet private weak var highestReviewContainerView: UIView!
+    @IBOutlet private weak var lowestReviewContainerView: UIView!
     
     var viewModel: RestaurantDetailsViewModel!
     
@@ -38,15 +41,23 @@ final class RestaurantDetailsViewController: BaseAppearanceViewController {
         restaurantNameLabel.text = viewModel.restaurant.name
         restaurantRating.text = String(viewModel.restaurant.avgRating)
         
-        setupReviewView(in: latestReviewContainerView, with: viewModel.restaurant.latestReview)
-        setupReviewView(in: highestReviewContainerView, with: viewModel.restaurant.highestReview)
-        setupReviewView(in: lowestReviewContainerView, with: viewModel.restaurant.lowestReview)
+        if !setupReviewView(in: latestReviewContainerView, with: viewModel.restaurant.latestReview) {
+            latestReviewTitleLabel.text = "Latest review: N/A"
+        }
+        
+        if !setupReviewView(in: highestReviewContainerView, with: viewModel.restaurant.highestReview) {
+            highestReviewTitleLabel.text = "Highest review: N/A"
+        }
+        
+        if !setupReviewView(in: lowestReviewContainerView, with: viewModel.restaurant.lowestReview) {
+            lowestReviewTitleLabel.text = "Lowest review: N/A"
+        }
     }
     
-    private func setupReviewView(in container: UIView, with review: Review?) {
+    private func setupReviewView(in container: UIView, with review: Review?) -> Bool {
         guard let review else {
-            view.isHidden = true
-            return
+            container.isHidden = true
+            return false
         }
         
         let reviewView = Bundle.main.loadNibNamed(
@@ -63,5 +74,7 @@ final class RestaurantDetailsViewController: BaseAppearanceViewController {
             authorName: review.author,
             visited: review.createdAt
         )
+        
+        return true
     }
 }

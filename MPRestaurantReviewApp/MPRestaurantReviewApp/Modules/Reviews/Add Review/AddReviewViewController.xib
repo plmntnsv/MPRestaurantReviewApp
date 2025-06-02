@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddReviewViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
+                <outlet property="commentTextView" destination="rU4-9g-ZSA" id="QDT-v2-Atx"/>
+                <outlet property="datePicker" destination="YOu-pn-Aff" id="aB9-6L-AJl"/>
+                <outlet property="rateResultLabel" destination="fR6-5h-Cdx" id="3Sm-ia-iAw"/>
+                <outlet property="rateSlider" destination="iSl-8O-wdG" id="z4r-T9-RMq"/>
+                <outlet property="scrollView" destination="p22-WP-dXJ" id="ZiS-Mc-hhp"/>
                 <outlet property="view" destination="iN0-l3-epB" id="POJ-RS-6xT"/>
             </connections>
         </placeholder>
@@ -17,14 +23,144 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p22-WP-dXJ">
+                    <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-oP-Ztc" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-Dx-uLp">
+                                    <rect key="frame" x="20" y="0.0" width="353" height="362.66666666666669"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XzG-AJ-oR4" userLabel="Rate Result Stack View">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="23"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3Z-sA-fDO" userLabel="Rate:">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR6-5h-Cdx" userLabel="Rate Result Label">
+                                                    <rect key="frame" x="51.333333333333343" y="0.0" width="301.66666666666663" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="iSl-8O-wdG" userLabel="Rate Horizontal Slider">
+                                            <rect key="frame" x="-2" y="35" width="357" height="21"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="3QC-ke-XLB"/>
+                                            </constraints>
+                                            <color key="minimumTrackTintColor" systemColor="systemPinkColor"/>
+                                            <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </slider>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xHM-LH-rNE" userLabel="Date Stack View">
+                                            <rect key="frame" x="0.0" y="67" width="353" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date visited:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qc1-u2-ehR" userLabel="Date visited:">
+                                                    <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzf-Ij-qWL">
+                                                    <rect key="frame" x="109.66666666666664" y="0.0" width="243.33333333333337" height="50"/>
+                                                    <subviews>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-pn-Aff">
+                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="Njp-P8-Unp"/>
+                                                                <constraint firstAttribute="height" constant="50" id="X06-4L-xAU"/>
+                                                            </constraints>
+                                                        </datePicker>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="YOu-pn-Aff" firstAttribute="top" secondItem="yzf-Ij-qWL" secondAttribute="top" id="9bT-xN-PNE"/>
+                                                        <constraint firstItem="YOu-pn-Aff" firstAttribute="leading" secondItem="yzf-Ij-qWL" secondAttribute="leading" id="Bse-mc-oTc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="YOu-pn-Aff" secondAttribute="bottom" id="lVZ-V5-Mk3"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwf-ZD-rt8" userLabel="Comment Label">
+                                            <rect key="frame" x="0.0" y="129" width="353" height="21.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rU4-9g-ZSA">
+                                            <rect key="frame" x="0.0" y="162.66666666666669" width="353" height="200"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="9DW-tC-akl"/>
+                                            </constraints>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        </textView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4n-Gy-Skp" customClass="PrimaryButton" customModule="MPRestaurantReviewApp" customModuleProvider="target">
+                                    <rect key="frame" x="181.66666666666666" y="382.66666666666669" width="30" height="30"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Add"/>
+                                    <connections>
+                                        <action selector="addReviewButtonTapped:" destination="-1" eventType="touchUpInside" id="NvB-K2-66d"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="oMh-Dx-uLp" firstAttribute="leading" secondItem="iUm-oP-Ztc" secondAttribute="leading" constant="20" id="2QK-h3-IkR"/>
+                                <constraint firstItem="K4n-Gy-Skp" firstAttribute="top" secondItem="oMh-Dx-uLp" secondAttribute="bottom" constant="20" id="ShS-mn-l3k"/>
+                                <constraint firstAttribute="trailing" secondItem="oMh-Dx-uLp" secondAttribute="trailing" constant="20" id="fGa-rT-Q4f"/>
+                                <constraint firstItem="oMh-Dx-uLp" firstAttribute="top" secondItem="iUm-oP-Ztc" secondAttribute="top" id="iqT-be-Ihk"/>
+                                <constraint firstItem="K4n-Gy-Skp" firstAttribute="centerX" secondItem="iUm-oP-Ztc" secondAttribute="centerX" id="yRf-GK-uvK"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="iUm-oP-Ztc" firstAttribute="height" secondItem="FTV-kU-Iea" secondAttribute="height" id="8W3-md-ojW"/>
+                        <constraint firstItem="iUm-oP-Ztc" firstAttribute="leading" secondItem="p22-WP-dXJ" secondAttribute="leading" id="9WD-U1-MUd"/>
+                        <constraint firstItem="iUm-oP-Ztc" firstAttribute="width" secondItem="FTV-kU-Iea" secondAttribute="width" id="JuJ-2o-sbG"/>
+                        <constraint firstAttribute="bottom" secondItem="iUm-oP-Ztc" secondAttribute="bottom" id="cQo-1X-Xuf"/>
+                        <constraint firstAttribute="trailing" secondItem="iUm-oP-Ztc" secondAttribute="trailing" id="ccA-4F-5La"/>
+                        <constraint firstItem="iUm-oP-Ztc" firstAttribute="top" secondItem="p22-WP-dXJ" secondAttribute="top" id="lei-6r-5Gp"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="7LD-N9-JsV"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="FTV-kU-Iea"/>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="backgroundColor 2"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="p22-WP-dXJ" secondAttribute="bottom" id="AUf-rL-kHP"/>
+                <constraint firstItem="p22-WP-dXJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eQA-Zc-Tve"/>
+                <constraint firstItem="p22-WP-dXJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="l4a-Ss-pK5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="p22-WP-dXJ" secondAttribute="trailing" id="nIS-Wz-Sdd"/>
+            </constraints>
             <point key="canvasLocation" x="138" y="20"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="backgroundColor 2">
+            <color red="0.92500001192092896" green="0.70300000905990601" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

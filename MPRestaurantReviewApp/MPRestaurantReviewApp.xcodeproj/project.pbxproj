@@ -59,6 +59,7 @@
 		D85E3E992DED21F700F83575 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E982DED21F700F83575 /* ReviewService.swift */; };
 		D85E3E9C2DED231800F83575 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */; };
 		D85E3E9E2DED233C00F83575 /* AddReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */; };
+		D85E3EA02DED24BA00F83575 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E9F2DED24BA00F83575 /* AddReviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		D85E3E982DED21F700F83575 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddReviewViewController.xib; sourceTree = "<group>"; };
+		D85E3E9F2DED24BA00F83575 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 			children = (
 				D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */,
 				D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */,
+				D85E3E9F2DED24BA00F83575 /* AddReviewViewModel.swift */,
 			);
 			path = "Add Review";
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				D85E3E3F2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift in Sources */,
 				D85E3E5D2DEB6D9700F83575 /* ErrorHandler.swift in Sources */,
 				D85E3E592DEB689200F83575 /* UIView+Utilities.swift in Sources */,
+				D85E3EA02DED24BA00F83575 /* AddReviewViewModel.swift in Sources */,
 				D85E3E502DEA41BB00F83575 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

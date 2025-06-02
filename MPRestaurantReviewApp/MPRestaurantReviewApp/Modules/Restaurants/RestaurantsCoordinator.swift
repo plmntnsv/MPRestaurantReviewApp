@@ -39,5 +39,14 @@ final class RestaurantsCoordinator: Coordinator {
     
     func showAddReview(for restaurant: Restaurant) {
         let service = ReviewService()
+        let viewModel = AddReviewViewModel(restaurant: restaurant, service: service, coordinator: self)
+        let viewController = AddReviewViewController()
+        viewController.viewModel = viewModel
+        
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func didFinishAddReview() {
+        navigationController.popViewController(animated: true)
     }
 }

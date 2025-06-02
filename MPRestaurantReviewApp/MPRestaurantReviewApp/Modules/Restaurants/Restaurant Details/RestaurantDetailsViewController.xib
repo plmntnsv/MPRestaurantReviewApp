@@ -11,8 +11,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
                 <outlet property="highestReviewContainerView" destination="a8w-e2-3mu" id="JVY-hs-mBi"/>
+                <outlet property="highestReviewTitleLabel" destination="LpO-Ze-HYx" id="Qh3-O4-qRV"/>
                 <outlet property="latestReviewContainerView" destination="6rh-CT-YsN" id="dgR-Gi-537"/>
+                <outlet property="latestReviewTitleLabel" destination="7sI-b9-mSs" id="dXc-YB-YE6"/>
                 <outlet property="lowestReviewContainerView" destination="OkK-3S-4NI" id="zQy-tg-8Wn"/>
+                <outlet property="lowestReviewTitleLabel" destination="2yN-V8-v6M" id="Y6j-Jk-W14"/>
                 <outlet property="restaurantNameLabel" destination="FuJ-ca-iHg" id="z8F-tZ-ERC"/>
                 <outlet property="restaurantRating" destination="WLt-no-vgA" id="xnq-tT-wSC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wiz-Lu-fek"/>

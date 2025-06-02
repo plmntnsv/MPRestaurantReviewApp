@@ -24,7 +24,7 @@ final class ReviewService {
         
         do {
             let snapshot = try await reviewsQuery.getDocuments()
-            var reviews: [Review] = snapshot.documents.compactMap {
+            let reviews: [Review] = snapshot.documents.compactMap {
                 try? $0.data(as: Review.self)
             }
             
@@ -38,14 +38,14 @@ final class ReviewService {
         }
     }
     
-    func addReview(
-        restaurantId: String,
-        userId: String,
-        comment: String,
-        author: String,
-        rating: Double,
-        visited: String
-    ) {
+    func addReview(_ review: Review, restaurantId: String) -> Result<Void, Error> {
         
+        do {
+            try db.collection("reviews").document(restaurantId).setData(from: review)
+            
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
     }
 }
