@@ -19,7 +19,7 @@ struct ReviewsSuccessDataResult {
 }
 
 final class RestaurantsService {
-    private let restaurantsDB = Firestore.firestore().collection("restaurants")
+    private let restaurantsDB = Firestore.firestore().collection(DataFieldKeyName.restaurants)
     
     func getRestaurant(withId id: String) async -> Result<Restaurant, Error> {
         do {
@@ -54,7 +54,7 @@ final class RestaurantsService {
     
     func deleteRestaurant(_ restaurant: Restaurant) async -> Result<Void, Error> {
         let restaurantRef = restaurantsDB.document(restaurant.id!)
-        let reviewsRef = restaurantRef.collection("reviews")
+        let reviewsRef = restaurantRef.collection(DataFieldKeyName.reviews)
         
         do {
             // Step 1: Delete all reviews
@@ -89,7 +89,7 @@ final class RestaurantsService {
         startAfterDoc: DocumentSnapshot? = nil
     ) async -> Result<RestaurantSuccessDataResult, Error> {
         do {
-            var restaurantsQuery = restaurantsDB.order(by: "averageRating", descending: true).limit(to: limit)
+            var restaurantsQuery = restaurantsDB.order(by: DataFieldKeyName.averageRating, descending: true).limit(to: limit)
             
             if let lastDoc = startAfterDoc {
                 restaurantsQuery = restaurantsQuery.start(afterDocument: lastDoc)
@@ -103,9 +103,9 @@ final class RestaurantsService {
                 let id = doc.documentID
                 let data = doc.data()
                 
-                guard let name = data["name"] as? String,
-                      let averageRating = data["averageRating"] as? Double,
-                      let ratingsCount = data["ratingsCount"] as? Int else {
+                guard let name = data[DataFieldKeyName.name] as? String,
+                      let averageRating = data[DataFieldKeyName.averageRating] as? Double,
+                      let ratingsCount = data[DataFieldKeyName.ratingsCount] as? Int else {
                     return .failure(AppError.decodingError.error)
                 }
                 
@@ -114,9 +114,9 @@ final class RestaurantsService {
                     name: name,
                     averageRating: averageRating,
                     ratingsCount: ratingsCount,
-                    highestReview: parseReview(from: data["highestReview"] as? [String: Any], restaurantId: id),
-                    lowestReview: parseReview(from: data["lowestReview"] as? [String: Any], restaurantId: id),
-                    latestReview: parseReview(from: data["latestReview"] as? [String: Any], restaurantId: id)
+                    highestReviewId: data[DataFieldKeyName.highestReviewId] as? String,
+                    lowestReviewId: data[DataFieldKeyName.lowestReviewId] as? String,
+                    latestReviewId: data[DataFieldKeyName.latestReviewId] as? String
                 )
                 
                 restaurants.append(restaurant)
@@ -133,27 +133,25 @@ final class RestaurantsService {
         }
     }
     
-    // MARK: - Private
-    private func parseReview(from data: [String: Any]?, restaurantId: String) -> Review? {
-        guard let data,
-              let comment = data["comment"] as? String,
-              let restaurantId = data["restaurantId"] as? String,
-              let userId = data["userId"] as? String,
-              let rating = data["rating"] as? Double,
-              let author = data["author"] as? String,
-              let visitDate = data["visitDate"] as? Timestamp,
-              let createdAt = data["createdAt"] as? Timestamp else {
-            return nil
+    func getRestaurantKeyReviews(_ restaurant: Restaurant) async -> RestaurantDetailsKeyReviews {
+        let restaurantRef = restaurantsDB.document(restaurant.id!)
+        let reviewsRef = restaurantRef.collection(DataFieldKeyName.reviews)
+        
+        var latest: Review?
+        var highest: Review?
+        var lowest: Review?
+        if restaurant.latestReviewId != nil {
+            latest = try? await reviewsRef.document(restaurant.latestReviewId!).getDocument(as: Review.self)
         }
         
-        return Review(
-            restaurantId: restaurantId,
-            userId: userId,
-            author: author,
-            rating: rating,
-            comment: comment,
-            visitDate: visitDate.dateValue(),
-            createdAt: createdAt.dateValue()
-        )
+        if restaurant.highestReviewId != nil {
+            highest = try? await reviewsRef.document(restaurant.highestReviewId!).getDocument(as: Review.self)
+        }
+        
+        if restaurant.lowestReviewId != nil {
+            lowest = try? await reviewsRef.document(restaurant.lowestReviewId!).getDocument(as: Review.self)
+        }
+        
+        return RestaurantDetailsKeyReviews(latest: latest, highest: highest, lowest: lowest)
     }
 }

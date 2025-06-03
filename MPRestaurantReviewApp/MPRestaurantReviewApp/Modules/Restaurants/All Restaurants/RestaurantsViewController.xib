@@ -43,8 +43,8 @@
                         <constraint firstItem="H7t-Q3-Ij5" firstAttribute="leading" secondItem="zbx-ZA-kg6" secondAttribute="leading" constant="10" id="BOg-bI-sRh"/>
                         <constraint firstItem="H7t-Q3-Ij5" firstAttribute="top" secondItem="zbx-ZA-kg6" secondAttribute="top" constant="10" id="Iff-tQ-hyO"/>
                         <constraint firstAttribute="width" constant="50" id="kEg-kz-mHb"/>
+                        <constraint firstAttribute="width" secondItem="zbx-ZA-kg6" secondAttribute="height" multiplier="1:1" id="oN0-Pf-u1E"/>
                         <constraint firstAttribute="trailing" secondItem="H7t-Q3-Ij5" secondAttribute="trailing" constant="10" id="scD-6G-fpl"/>
-                        <constraint firstAttribute="height" constant="50" id="uAk-sA-fJx"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

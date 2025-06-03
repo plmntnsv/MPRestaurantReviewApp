@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct Review: Codable, Identifiable, Equatable {
     @DocumentID var id: String?
-    var restaurantId: String
+    var reviewId: String?
     var userId: String
     var author: String
     var rating: Double

@@ -9,11 +9,11 @@ import Foundation
 import FirebaseFirestore
 
 struct Restaurant: Codable, Identifiable, Equatable {
-    var id: String?
+    @DocumentID var id: String?
     var name: String
     var averageRating: Double
     var ratingsCount: Int
-    var highestReview: Review?
-    var lowestReview: Review?
-    var latestReview: Review?
+    var highestReviewId: String?
+    var lowestReviewId: String?
+    var latestReviewId: String?
 }

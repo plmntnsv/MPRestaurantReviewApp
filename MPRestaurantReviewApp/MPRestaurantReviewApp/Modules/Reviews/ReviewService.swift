@@ -9,15 +9,15 @@ import Foundation
 import FirebaseFirestore
 
 final class ReviewService {
-    private let db = Firestore.firestore()
+    private let restaurantsDB = Firestore.firestore().collection(DataFieldKeyName.restaurants)
     
-    func getAllReviews(
+    func getReviews(
         for restaurantId: String,
         startAfterDoc: DocumentSnapshot? = nil,
         limit: Int = 10
     ) async -> Result<ReviewsSuccessDataResult, Error> {
-        let restaurantRef = db.collection("restaurants").document(restaurantId)
-        var reviewsQuery = restaurantRef.collection("reviews").limit(to: limit)
+        let restaurantRef = restaurantsDB.document(restaurantId)
+        var reviewsQuery = restaurantRef.collection(DataFieldKeyName.reviews).limit(to: limit)
         
         if let lastDoc = startAfterDoc {
             reviewsQuery = reviewsQuery.start(afterDocument: lastDoc)
@@ -40,62 +40,173 @@ final class ReviewService {
     }
     
     func addReviewToRestaurant(_ review: Review, to restaurant: Restaurant) async -> Result<Void, Error> {
-        let restaurantRef = db.collection("restaurants").document(restaurant.id!)
-        let reviewsCollection = restaurantRef.collection("reviews")
-        let newReviewRef = reviewsCollection.document()
+        let restaurantRef = restaurantsDB.document(restaurant.id!)
+        let reviewsCollection = restaurantRef.collection(DataFieldKeyName.reviews)
+        let reviewRef = reviewsCollection.document()
+        let newReviewId = reviewRef.documentID
         
         do {
-            let _ = try await db.runTransaction { transaction, errorPointer -> Any? in
+            let _ = try await Firestore.firestore().runTransaction { transaction, errorPointer in
                 do {
-                    // Get the restaurant snapshot
+                    try reviewRef.setData(from: review)
+                    
                     guard let restaurantDoc = try? transaction.getDocument(restaurantRef) else {
                         errorPointer?.pointee = AppError.decodingError.error
-                        return nil
+                        return
                     }
                     
-                    guard var restaurant = try? restaurantDoc.data(as: Restaurant.self) else {
+                    guard let restaurant = try? restaurantDoc.data(as: Restaurant.self) else {
                         errorPointer?.pointee = AppError.decodingError.error
-                        return nil
+                        return
                     }
                     
-                    // Save new review
-                    let reviewToSave = review
-                    try transaction.setData(from: reviewToSave, forDocument: newReviewRef)
-
+                    var updates: [String: Any] = [:]
                     
-                    // Update latest review
-                    restaurant.latestReview = reviewToSave
-                    
-                    // Check if hiher and update
-                    if restaurant.highestReview == nil || review.rating >= restaurant.highestReview!.rating {
-                        restaurant.highestReview = reviewToSave
+                    // Check and set highest review
+                    if let highestId = restaurant.highestReviewId {
+                        let highestRef = reviewsCollection.document(highestId)
+                        
+                        if let highestSnapshot = try? transaction.getDocument(highestRef),
+                           let highestRating = highestSnapshot.get(DataFieldKeyName.rating) as? Double,
+                           review.rating >= highestRating {
+                            updates[DataFieldKeyName.highestReviewId] = newReviewId
+                        }
+                    } else {
+                        updates[DataFieldKeyName.highestReviewId] = newReviewId
                     }
                     
-                    // Check if lower and update
-                    if restaurant.lowestReview == nil || review.rating <= restaurant.lowestReview!.rating {
-                        restaurant.lowestReview = reviewToSave
+                    // Check and set lowest review
+                    if let lowestId = restaurant.lowestReviewId {
+                        let lowestRef = reviewsCollection.document(lowestId)
+                        
+                        if let lowestSnapshot = try? transaction.getDocument(lowestRef),
+                           let lowestRating = lowestSnapshot.get(DataFieldKeyName.rating) as? Double,
+                           review.rating <= lowestRating {
+                            updates[DataFieldKeyName.lowestReviewId] = newReviewId
+                        }
+                    } else {
+                        updates[DataFieldKeyName.lowestReviewId] = newReviewId
                     }
                     
-                    // Update average rating
+                    // Set latest review
+                    updates[DataFieldKeyName.latestReviewId] = newReviewId
+                    updates[DataFieldKeyName.name] = restaurant.name
+                    
+                    
+                    // Set average rating & count
+                    let ratingsCount = restaurant.ratingsCount + 1
+                    updates[DataFieldKeyName.ratingsCount] = ratingsCount
                     let totalRating = restaurant.averageRating * Double(restaurant.ratingsCount)
-                    restaurant.ratingsCount += 1
-                    restaurant.averageRating = (totalRating + review.rating) / Double(restaurant.ratingsCount)
+                    updates[DataFieldKeyName.averageRating] = (totalRating + review.rating) / Double(ratingsCount)
                     
-                    // Finally save the restaurant
-                    try transaction.setData(from: restaurant, forDocument: restaurantRef)
+                    // Update
+                    transaction.updateData(updates, forDocument: restaurantRef)
                     
-                    return nil
-                    
+                    return
                 } catch {
                     errorPointer?.pointee = error as NSError
-                    return nil
+                    return
                 }
-                
             }
             
             return .success(())
         } catch {
             return .failure(error)
         }
+    }
+    
+    func editReview(_ editedReview: Review, for restaurantId: String) async -> Result<Void, Error> {
+        let restaurantRef = restaurantsDB.document(restaurantId)
+        let reviewsRef = restaurantRef.collection(DataFieldKeyName.reviews)
+        let reviewRef = reviewsRef.document(editedReview.id!)
+        
+        do {
+            try reviewRef.setData(from: editedReview)
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    func deleteReview(restaurantId: String, reviewId: String) async -> Result<Void, Error> {
+        let reviewRef = restaurantsDB.document(restaurantId).collection(DataFieldKeyName.reviews).document(reviewId)
+        
+        let deleteResult: Result<Void, Error> = await withCheckedContinuation { continuation in
+            reviewRef.delete { error in
+                if let error {
+                    continuation.resume(returning: .failure(error))
+                    return
+                }
+                
+                continuation.resume(returning: .success(()))
+            }
+        }
+        
+       switch deleteResult {
+        case .success:
+           do {
+               try await updateReviewReferencesAfterDeletion(restaurantId: restaurantId, deletedReviewId: reviewId)
+               return .success(())
+           } catch {
+               return .failure(error)
+           }
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    // MARK: - Private
+    private func updateReviewReferencesAfterDeletion(restaurantId: String, deletedReviewId: String) async throws {
+        let restaurantRef = restaurantsDB.document(restaurantId)
+        let snapshot = try await restaurantRef.getDocument()
+        
+        guard let restaurant = snapshot.data() else { throw AppError.decodingError.error }
+
+        var updates: [String: String?] = [:]
+        
+        if let latestReview = restaurant[DataFieldKeyName.latestReviewId] as? String,
+            latestReview == deletedReviewId {
+            let newLatest = try await getLatestReview(restaurantId: restaurantId)
+            updates[DataFieldKeyName.latestReviewId] = newLatest
+        }
+
+        if let highestReview = restaurant[DataFieldKeyName.highestReviewId] as? String,
+            highestReview == deletedReviewId {
+            let newHighest = try await getExtremeReview(restaurantId: restaurantId, highest: true)
+            updates[DataFieldKeyName.highestReviewId] = newHighest
+        }
+
+        if let lowestReview = restaurant[DataFieldKeyName.lowestReviewId] as? String,
+            lowestReview == deletedReviewId {
+            let newLowest = try await getExtremeReview(restaurantId: restaurantId, highest: false)
+            updates[DataFieldKeyName.lowestReviewId] = newLowest
+        }
+
+        if !updates.isEmpty {
+            try await restaurantRef.updateData(updates as [String: Any])
+        }
+    }
+    
+    private func getLatestReview(restaurantId: String) async throws -> String? {
+        let snapshot = try await restaurantsDB
+            .document(restaurantId)
+            .collection(DataFieldKeyName.reviews)
+            .order(by: DataFieldKeyName.createdAt, descending: true)
+            .limit(to: 1)
+            .getDocuments()
+        
+        let review = try snapshot.documents.first?.data(as: Review.self).id
+        return review
+    }
+
+    private func getExtremeReview(restaurantId: String, highest: Bool) async throws -> String? {
+        let snapshot = try await restaurantsDB
+            .document(restaurantId)
+            .collection(DataFieldKeyName.reviews)
+            .order(by: DataFieldKeyName.rating, descending: highest)
+            .limit(to: 1)
+            .getDocuments()
+        
+        let review = try snapshot.documents.first?.data(as: Review.self).id
+        return review
     }
 }

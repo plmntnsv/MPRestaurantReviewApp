@@ -44,19 +44,7 @@ final class RestaurantsViewModel {
         }
     }
     
-    func didSelectRestaurant(at index: Int) {
-        coordinator.showDetails(for: restaurants[index])
-    }
-    
-    func didTapAddButton() {
-        coordinator.showAddRestaurant(screenType: .add)
-    }
-    
-    func didTapEditRestaurant(_ restaurant: Restaurant) {
-        coordinator.showAddRestaurant(screenType: .edit(restaurant))
-    }
-    
-    func didTapDeleteRestaurant(_ restaurant: Restaurant) async -> Result<Void, Error> {
+    func deleteRestaurant(_ restaurant: Restaurant) async -> Result<Void, Error> {
         switch await service.deleteRestaurant(restaurant) {
         case .success:
             if let indexToRemove = restaurants.firstIndex(of: restaurant) {
@@ -73,5 +61,17 @@ final class RestaurantsViewModel {
             restaurants.remove(at: indexToRemove)
             restaurants.insert(restaurant, at: indexToRemove)
         }
+    }
+    
+    func showRestaurantDetails(at index: Int) {
+        coordinator.showDetails(for: restaurants[index])
+    }
+    
+    func showAddRestaurant() {
+        coordinator.showAddRestaurant(screenType: .add)
+    }
+    
+    func goToEditRestaurant(_ restaurant: Restaurant) {
+        coordinator.showAddRestaurant(screenType: .edit(restaurant))
     }
 }

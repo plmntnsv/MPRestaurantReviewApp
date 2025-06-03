@@ -15,12 +15,21 @@ final class RestaurantsViewController: BaseAppearanceViewController {
     var viewModel: RestaurantsViewModel!
     
     // MARK: - Lifecycle
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Restaurants"
         
-        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onReviewDeletedReviewNotificationReceived(_:)),
+            name: .reviewDeleted,
+            object: nil
+        )
         
         if UserManager.shared.currentUser?.isAdmin == false {
             addNewContainerView?.removeFromSuperview()
@@ -34,7 +43,7 @@ final class RestaurantsViewController: BaseAppearanceViewController {
     
     // MARK: - @IBAction
     @IBAction private func didTapAddNewRestaurant(_ sender: Any) {
-        viewModel.didTapAddButton()
+        viewModel.showAddRestaurant()
     }
     
     //MARK: - Private
@@ -75,6 +84,18 @@ final class RestaurantsViewController: BaseAppearanceViewController {
     @objc private func refreshData() {
         fetchData(refresh: true)
         refreshControl.endRefreshing()
+    }
+    
+    @objc private func onReviewDeletedReviewNotificationReceived(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let review = userInfo[NotificationUserInfoKey.review] as? Review,
+           let restaurant = userInfo[NotificationUserInfoKey.restaurant] as? Restaurant,
+            review.reviewId == restaurant.latestReviewId ||
+            review.reviewId == restaurant.highestReviewId ||
+            review.reviewId == restaurant.lowestReviewId {
+            // TODO: refresh specific index only
+            refreshData()
+        }
     }
 }
 
@@ -123,19 +144,19 @@ extension RestaurantsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRestaurant(at: indexPath.row)
+        viewModel.showRestaurantDetails(at: indexPath.row)
     }
 }
 
 // MARK: - RestaurantTableViewCellDelegate
 extension RestaurantsViewController: RestaurantTableViewCellDelegate {
     func restaurantCellDidTapEdit(_ restaurant: Restaurant) {
-        viewModel.didTapEditRestaurant(restaurant)
+        viewModel.goToEditRestaurant(restaurant)
     }
     
     func restaurantCellDidTapDelete(_ restaurant: Restaurant) {
         Task {
-            switch await viewModel.didTapDeleteRestaurant(restaurant) {
+            switch await viewModel.deleteRestaurant(restaurant) {
             case .success():
                 restaurantsTableView.reloadData()
             case .failure(let error):

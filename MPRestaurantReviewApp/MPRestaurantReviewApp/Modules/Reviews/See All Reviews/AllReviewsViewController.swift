@@ -12,22 +12,24 @@ final class AllReviewsViewController: BaseAppearanceViewController {
     @IBOutlet private weak var reviewsTableView: UITableView!
     var viewModel: AllReviewsViewModel!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = viewModel.restaurant.name
         setupTableView()
         
-        Task {
-            switch await viewModel.fetchReviews() {
-            case .success:
-                reviewsTableView.reloadData()
-            case .failure(let error):
-                ErrorHandler.showError(error, in: self)
-            }
-        }
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onReviewEditedNotificationReceived(_:)),
+            name: .reviewEdited,
+            object: nil
+        )
+        
+        fetchData()
     }
     
+    // MARK: - Private
     private func setupTableView() {
         reviewsTableView.dataSource = self
         reviewsTableView.delegate = self
@@ -42,8 +44,33 @@ final class AllReviewsViewController: BaseAppearanceViewController {
             forCellReuseIdentifier: "\(LoadingTableViewCell.self)"
         )
     }
+    
+    @objc private func onReviewEditedNotificationReceived(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let review = userInfo[NotificationUserInfoKey.review] as? Review,
+              let restaurant = userInfo[NotificationUserInfoKey.restaurant] as? Restaurant,
+              restaurant.id == viewModel.restaurant.id else {
+            return
+        }
+        
+        if viewModel.updateExistingReview(with: review) {
+            reviewsTableView.reloadData()
+        }
+    }
+    
+    private func fetchData() {
+        Task {
+            switch await viewModel.fetchReviews() {
+            case .success:
+                reviewsTableView.reloadData()
+            case .failure(let error):
+                ErrorHandler.showError(error, in: self)
+            }
+        }
+    }
 }
 
+// MARK: - UITableViewDataSource
 extension AllReviewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.reviews.isEmpty {
@@ -70,22 +97,17 @@ extension AllReviewsViewController: UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-        let reviewView = ReviewView.load(in: cell.reviewViewContainer)
-        reviewView.setup(
-            with: viewModel.reviews[indexPath.row].rating.asRating,
-            text: viewModel.reviews[indexPath.row].comment,
-            authorName: viewModel.reviews[indexPath.row].author,
-            visited: viewModel.reviews[indexPath.row].visitDate
-        )
+        cell.setup(delegate: self, review: viewModel.reviews[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        UserManager.shared.currentUser!.isAdmin ? 169 : 128
     }
 }
 
+// MARK: - UITableViewDelegate
 extension AllReviewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell is LoadingTableViewCell {
@@ -96,6 +118,32 @@ extension AllReviewsViewController: UITableViewDelegate {
                 case .failure(let error):
                     ErrorHandler.showError(error, in: self)
                 }
+            }
+        }
+    }
+}
+
+// MARK: - ReviewTableViewCellDelegate
+extension AllReviewsViewController: ReviewTableViewCellDelegate {
+    func reviewTableViewCell(_ cell: ReviewTableViewCell, didTapEditButtonFor review: Review) {
+        viewModel.showEditReview(review)
+    }
+    
+    func reviewTableViewCell(_ cell: ReviewTableViewCell, didTapDeleteButtonFor review: Review) {
+        Task {
+            switch await viewModel.deleteReview(review) {
+            case .success:
+                NotificationCenter.default.post(
+                    name: .reviewDeleted,
+                    object: nil,
+                    userInfo: [
+                        NotificationUserInfoKey.review: review,
+                        NotificationUserInfoKey.restaurant: viewModel.restaurant
+                    ]
+                )
+                reviewsTableView.reloadData()
+            case .failure(let error):
+                ErrorHandler.showError(error, in: self)
             }
         }
     }

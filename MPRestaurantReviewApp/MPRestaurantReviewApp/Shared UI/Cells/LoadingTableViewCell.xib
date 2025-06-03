@@ -11,20 +11,19 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="82" id="jqx-1A-SYP" userLabel="Restaurant Table View Cell" customClass="LoadingTableViewCell" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqx-1A-SYP" id="tv3-bB-KKB">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqx-1A-SYP" id="tv3-bB-KKB">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3R-zk-ggR">
-                        <rect key="frame" x="4" y="4" width="385" height="30"/>
+                        <rect key="frame" x="4" y="4" width="385" height="72"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-vG-02i">
-                                <rect key="frame" x="182.66666666666666" y="5" width="20" height="20"/>
+                                <rect key="frame" x="182.66666666666666" y="26" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="X9b-uL-JVd"/>
                             <constraint firstItem="nL1-vG-02i" firstAttribute="centerY" secondItem="f3R-zk-ggR" secondAttribute="centerY" id="ivI-nE-t7C"/>
                             <constraint firstItem="nL1-vG-02i" firstAttribute="centerX" secondItem="f3R-zk-ggR" secondAttribute="centerX" id="tbW-Lf-Egq"/>
                         </constraints>

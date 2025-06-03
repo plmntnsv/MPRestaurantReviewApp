@@ -11,7 +11,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="212" id="jqx-1A-SYP" userLabel="Restaurant Table View Cell" customClass="ReviewTableViewCell" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqx-1A-SYP" id="tv3-bB-KKB">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqx-1A-SYP" id="tv3-bB-KKB">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -22,21 +22,57 @@
                             <constraint firstAttribute="height" constant="120" id="X9b-uL-JVd"/>
                         </constraints>
                     </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-Vs-qgn">
+                        <rect key="frame" x="303" y="121" width="82" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plj-LV-Fzy" userLabel="Edit Button">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ezZ-sn-hps"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapEditButton:" destination="jqx-1A-SYP" eventType="touchUpInside" id="B51-W1-OT5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-Z6-onk" userLabel="Delete Button">
+                                <rect key="frame" x="42" y="0.0" width="40" height="40"/>
+                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapDeleteButton:" destination="jqx-1A-SYP" eventType="touchUpInside" id="VK6-wh-NYY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="fo7-ER-BG8"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="f3R-zk-ggR" firstAttribute="leading" secondItem="tv3-bB-KKB" secondAttribute="leading" constant="8" id="0Pw-Sa-Tip"/>
+                    <constraint firstItem="cpi-Vs-qgn" firstAttribute="top" secondItem="f3R-zk-ggR" secondAttribute="bottom" constant="1" id="Djv-v8-kyG"/>
+                    <constraint firstItem="cpi-Vs-qgn" firstAttribute="trailing" secondItem="f3R-zk-ggR" secondAttribute="trailing" id="boS-Yq-rff"/>
                     <constraint firstAttribute="trailing" secondItem="f3R-zk-ggR" secondAttribute="trailing" constant="8" id="eaK-BY-9Nu"/>
+                    <constraint firstAttribute="bottom" secondItem="cpi-Vs-qgn" secondAttribute="bottom" constant="8" id="n1T-ZE-DlG"/>
                     <constraint firstItem="f3R-zk-ggR" firstAttribute="top" secondItem="tv3-bB-KKB" secondAttribute="top" id="rLu-d6-4EC"/>
-                    <constraint firstAttribute="bottom" secondItem="f3R-zk-ggR" secondAttribute="bottom" constant="8" id="vCo-aZ-FWI"/>
+                    <constraint firstAttribute="bottom" secondItem="f3R-zk-ggR" secondAttribute="bottom" priority="999" constant="8" id="vCo-aZ-FWI"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <accessibility key="accessibilityConfiguration" identifier="restaurantCell"/>
             <connections>
+                <outlet property="actionButtonsStackView" destination="cpi-Vs-qgn" id="Sha-xE-qHe"/>
                 <outlet property="reviewViewContainer" destination="f3R-zk-ggR" id="4wa-Kj-lHI"/>
             </connections>
-            <point key="canvasLocation" x="-361.06870229007632" y="-262.67605633802816"/>
+            <point key="canvasLocation" x="-361" y="-288"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+    </resources>
 </document>

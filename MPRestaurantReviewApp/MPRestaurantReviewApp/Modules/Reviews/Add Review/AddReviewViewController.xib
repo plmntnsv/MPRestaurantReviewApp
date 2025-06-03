@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddReviewViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="K4n-Gy-Skp" id="dWf-fu-fF9"/>
                 <outlet property="commentTextView" destination="rU4-9g-ZSA" id="QDT-v2-Atx"/>
                 <outlet property="datePicker" destination="YOu-pn-Aff" id="aB9-6L-AJl"/>
                 <outlet property="rateResultLabel" destination="fR6-5h-Cdx" id="3Sm-ia-iAw"/>

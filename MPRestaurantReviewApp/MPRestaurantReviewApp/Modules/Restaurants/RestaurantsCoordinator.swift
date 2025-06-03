@@ -14,7 +14,6 @@ final class RestaurantsCoordinator: Coordinator {
     private let restaurantService = RestaurantsService()
     
     private var restaurantsViewController: RestaurantsViewController?
-    private var restaurantDetailsViewController: RestaurantDetailsViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -37,17 +36,16 @@ final class RestaurantsCoordinator: Coordinator {
         let viewModel = RestaurantDetailsViewModel(restaurant: restaurant, service: restaurantService, coordinator: self)
         let viewController = RestaurantDetailsViewController()
         viewController.viewModel = viewModel
-        restaurantDetailsViewController = viewController
         
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func showAddReview(for restaurant: Restaurant) {
+    func showAddReview(for restaurant: Restaurant, screenType: AddReviewViewController.ScreenType) {
         let service = ReviewService()
         let viewModel = AddReviewViewModel(restaurant: restaurant, service: service, coordinator: self)
         let viewController = AddReviewViewController()
+        viewController.screenType = screenType
         viewController.viewModel = viewModel
-        viewController.delegate = restaurantDetailsViewController
         
         navigationController.pushViewController(viewController, animated: true)
     }

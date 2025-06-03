@@ -28,7 +28,7 @@ final class AllReviewsViewModel {
     }
     
     func fetchReviews() async -> Result<Void, Error> {
-        switch await service.getAllReviews(for: restaurant.id!, startAfterDoc: lastReviewsDoc) {
+        switch await service.getReviews(for: restaurant.id!, startAfterDoc: lastReviewsDoc) {
         case .success(let result):
             if result.reviews.isEmpty {
                 pagingIsComplete = true
@@ -40,5 +40,31 @@ final class AllReviewsViewModel {
         case .failure(let error):
             return .failure(error)
         }
+    }
+    
+    func updateExistingReview(with review: Review) -> Bool {
+        if let index = reviews.firstIndex(where: { $0.id == review.id }) {
+            reviews[index] = review
+            return true
+        }
+        
+        return false
+    }
+    
+    func deleteReview(_ review: Review) async -> Result<Void, Error> {
+        switch await service.deleteReview(restaurantId: restaurant.id!, reviewId: review.id!) {
+        case .success:
+            if let indexToRemove = reviews.firstIndex(where: { $0.id == review.id }) {
+                reviews.remove(at: indexToRemove)
+            }
+            
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    func showEditReview(_ review: Review) {
+        coordinator.showAddReview(for: restaurant, screenType: .edit(review))
     }
 }

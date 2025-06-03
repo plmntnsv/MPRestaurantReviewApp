@@ -74,6 +74,7 @@
 		D8B55A472DEDD0F200224B5F /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */; };
 		D8B55A492DEE394E00224B5F /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */; };
 		D8B55A4B2DEE5A4F00224B5F /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */; };
+		D8B55A562DEF500300224B5F /* DataFieldKeyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A552DEF500300224B5F /* DataFieldKeyName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		D8B55A552DEF500300224B5F /* DataFieldKeyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFieldKeyName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				D85E3E5C2DEB6D9700F83575 /* ErrorHandler.swift */,
 				D85E3EA32DEDA25C00F83575 /* Double+Truncate.swift */,
 				D85E3EB12DEDB00200F83575 /* Date+AppFormat.swift */,
+				D8B55A552DEF500300224B5F /* DataFieldKeyName.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				D85E3E992DED21F700F83575 /* ReviewService.swift in Sources */,
 				D85E3E6E2DEBA5E900F83575 /* RestaurantsCoordinator.swift in Sources */,
 				D85E3E6C2DEBA5A900F83575 /* RestaurantTableViewCell.swift in Sources */,
+				D8B55A562DEF500300224B5F /* DataFieldKeyName.swift in Sources */,
 				D85E3E722DEBCB1200F83575 /* BaseTabBarController.swift in Sources */,
 				D85E3E662DEBA49300F83575 /* RestaurantsViewController.swift in Sources */,
 				D85E3E232DE8F0B800F83575 /* AppDelegate.swift in Sources */,
