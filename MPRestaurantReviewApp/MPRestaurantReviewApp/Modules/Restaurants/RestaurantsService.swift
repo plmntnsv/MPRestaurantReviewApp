@@ -54,6 +54,38 @@ final class RestaurantsService {
         }
     }
     
+    func deleteRestaurant(_ restaurant: Restaurant) async -> Result<Void, Error> {
+        let restaurantRef = restaurantsDB.document(restaurant.id!)
+        let reviewsRef = restaurantRef.collection("reviews")
+        
+        do {
+            // Step 1: Delete all reviews
+            try await deleteSubcollection(reviewsRef)
+            
+            // Step 2: Delete the restaurant document
+            try await restaurantRef.delete()
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    private func deleteSubcollection(_ subcollectionRef: CollectionReference, batchSize: Int = 10) async throws {
+        let snapshot = try await subcollectionRef.limit(to: batchSize).getDocuments()
+        
+        guard !snapshot.documents.isEmpty else { return }
+
+        let batch = subcollectionRef.firestore.batch()
+        
+        for document in snapshot.documents {
+            batch.deleteDocument(document.reference)
+        }
+
+        try await batch.commit()
+
+        try await deleteSubcollection(subcollectionRef, batchSize: batchSize)
+    }
+    
     func getAllRestaurants(
         limit: Int,
         startAfterDoc: DocumentSnapshot? = nil

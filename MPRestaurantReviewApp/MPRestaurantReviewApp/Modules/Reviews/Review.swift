@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Review: Codable, Identifiable {
+struct Review: Codable, Identifiable, Equatable {
     @DocumentID var id: String?
     var restaurantId: String
     var userId: String

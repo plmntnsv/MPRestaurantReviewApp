@@ -63,7 +63,15 @@ final class RestaurantsViewModel {
         coordinator.showAddRestaurant(screenType: .edit(restaurant))
     }
     
-    func didTapDeleteRestaurant(_ restaurant: Restaurant) {
-        
+    func didTapDeleteRestaurant(_ restaurant: Restaurant) async -> Result<Void, Error> {
+        switch await service.deleteRestaurant(restaurant) {
+        case .success:
+            if let indexToRemove = restaurants.firstIndex(of: restaurant) {
+                restaurants.remove(at: indexToRemove)
+            }
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
     }
 }

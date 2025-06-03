@@ -128,6 +128,13 @@ extension RestaurantsViewController: RestaurantTableViewCellDelegate {
     }
     
     func restaurantCellDidTapDelete(_ restaurant: Restaurant) {
-        viewModel.didTapDeleteRestaurant(restaurant)
+        Task {
+            switch await viewModel.didTapDeleteRestaurant(restaurant) {
+            case .success():
+                restaurantsTableView.reloadData()
+            case .failure(let error):
+                ErrorHandler.showError(error, in: self)
+            }
+        }
     }
 }

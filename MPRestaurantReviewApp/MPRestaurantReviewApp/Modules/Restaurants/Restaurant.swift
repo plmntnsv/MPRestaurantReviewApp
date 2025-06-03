@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Restaurant: Codable, Identifiable {
+struct Restaurant: Codable, Identifiable, Equatable {
     var id: String?
     var name: String
     var averageRating: Double
