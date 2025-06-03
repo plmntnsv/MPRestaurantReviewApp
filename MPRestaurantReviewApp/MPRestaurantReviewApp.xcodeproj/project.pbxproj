@@ -73,7 +73,7 @@
 		D8B55A462DEDD0F200224B5F /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A442DEDD0F200224B5F /* LoadingTableViewCell.swift */; };
 		D8B55A472DEDD0F200224B5F /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */; };
 		D8B55A492DEE394E00224B5F /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */; };
-		D8B55A4B2DEE5A4F00224B5F /* Notification+DataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A4A2DEE5A4F00224B5F /* Notification+DataChange.swift */; };
+		D8B55A4B2DEE5A4F00224B5F /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,7 +142,7 @@
 		D8B55A442DEDD0F200224B5F /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		D8B55A452DEDD0F200224B5F /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
-		D8B55A4A2DEE5A4F00224B5F /* Notification+DataChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+DataChange.swift"; sourceTree = "<group>"; };
+		D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,7 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				D85E3E582DEB689200F83575 /* UIView+Utilities.swift */,
-				D8B55A4A2DEE5A4F00224B5F /* Notification+DataChange.swift */,
+				D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,7 +566,7 @@
 				D85E3EA92DEDAB3200F83575 /* AllReviewsViewModel.swift in Sources */,
 				D85E3E3F2DE9EE6500F83575 /* KeyboardResponsiveViewController.swift in Sources */,
 				D85E3E5D2DEB6D9700F83575 /* ErrorHandler.swift in Sources */,
-				D8B55A4B2DEE5A4F00224B5F /* Notification+DataChange.swift in Sources */,
+				D8B55A4B2DEE5A4F00224B5F /* Notification+Names.swift in Sources */,
 				D85E3E592DEB689200F83575 /* UIView+Utilities.swift in Sources */,
 				D85E3EA02DED24BA00F83575 /* AddReviewViewModel.swift in Sources */,
 				D85E3EA72DEDAB2B00F83575 /* AllReviewsViewController.swift in Sources */,

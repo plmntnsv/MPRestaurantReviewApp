@@ -97,3 +97,10 @@ final class RestaurantDetailsViewController: BaseAppearanceViewController {
         return true
     }
 }
+
+// MARK: - AddReviewViewControllerDelegate
+extension RestaurantDetailsViewController: AddReviewViewControllerDelegate {
+    func onReviewAddedToRestaurant(review: Review, to restaurant: Restaurant) {
+        
+    }
+}

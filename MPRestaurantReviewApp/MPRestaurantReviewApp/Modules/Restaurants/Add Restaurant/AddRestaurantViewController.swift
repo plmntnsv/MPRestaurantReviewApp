@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+protocol AddRestaurantViewControllerDelegate: AnyObject {
+    func onEditRestaurant(_ restaurant: Restaurant)
+    func onAddNewRestaurant(_ restaurantId: String)
+}
+
 final class AddRestaurantViewController: KeyboardResponsiveViewController {
     enum ScreenType {
         case add
@@ -24,6 +29,7 @@ final class AddRestaurantViewController: KeyboardResponsiveViewController {
     
     var screenType: ScreenType = .add
     var viewModel: AddRestaurantViewModel!
+    weak var delegate: AddRestaurantViewControllerDelegate?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -46,7 +52,8 @@ final class AddRestaurantViewController: KeyboardResponsiveViewController {
         case .add:
             Task {
                 switch await viewModel.addRestaurant(name: name) {
-                case .success:
+                case .success(let id):
+                    delegate?.onAddNewRestaurant(id)
                     viewModel.didAddRestaurant()
                 case .failure(let error):
                     ErrorHandler.showError(error, in: self)
@@ -64,6 +71,7 @@ final class AddRestaurantViewController: KeyboardResponsiveViewController {
             Task {
                 switch await viewModel.editRestaurant(restaurant, newName: name) {
                 case .success(let restaurant):
+                    delegate?.onEditRestaurant(restaurant)
                     viewModel.didEditRestaurant(restaurant)
                 case .failure(let error):
                     ErrorHandler.showError(error, in: self)

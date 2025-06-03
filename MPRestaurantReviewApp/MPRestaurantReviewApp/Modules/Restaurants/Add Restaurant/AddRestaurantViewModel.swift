@@ -16,10 +16,11 @@ final class AddRestaurantViewModel {
         self.coordinator = coordinator
     }
     
-    func addRestaurant(name: String) async -> Result<Void, Error> {
-        switch await service.addRestaurant(name) {
-        case .success:
-            return .success(())
+    func addRestaurant(name: String) async -> Result<String, Error> {
+        let newRestaurant = Restaurant(name: name, averageRating: 0, ratingsCount: 0)
+        switch await service.addRestaurant(newRestaurant) {
+        case .success(let id):
+            return .success(id)
         case .failure(let error):
             return .failure(error)
         }
@@ -37,7 +38,6 @@ final class AddRestaurantViewModel {
     }
     
     func didEditRestaurant(_ restaurant: Restaurant) {
-        // TODO: notif
         coordinator.didFinishAddRestaurant()
     }
     

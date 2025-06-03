@@ -40,26 +40,23 @@ final class ReviewService {
     }
     
     func addReviewToRestaurant(_ review: Review, to restaurant: Restaurant) async -> Result<Void, Error> {
-        let restaurantRef = db.collection("restaurants").document(review.restaurantId)
+        let restaurantRef = db.collection("restaurants").document(restaurant.id!)
         let reviewsCollection = restaurantRef.collection("reviews")
         let newReviewRef = reviewsCollection.document()
         
         do {
             let _ = try await db.runTransaction { transaction, errorPointer -> Any? in
                 do {
-                    // TODO: test if working now
-                    // 1. Get the restaurant snapshot
-//                    guard let restaurantDoc = try? transaction.getDocument(restaurantRef) else {
-//                        errorPointer?.pointee = AppError.decodingError.error
-//                        return nil
-//                    }
-//                    
-//                    guard var restaurant = try? restaurantDoc.data(as: Restaurant.self) else {
-//                        errorPointer?.pointee = AppError.decodingError.error
-//                        return nil
-//                    }
-                    // TODO: fetch again to get up to date restaurant
-                    var restaurantToEdit = restaurant
+                    // Get the restaurant snapshot
+                    guard let restaurantDoc = try? transaction.getDocument(restaurantRef) else {
+                        errorPointer?.pointee = AppError.decodingError.error
+                        return nil
+                    }
+                    
+                    guard var restaurant = try? restaurantDoc.data(as: Restaurant.self) else {
+                        errorPointer?.pointee = AppError.decodingError.error
+                        return nil
+                    }
                     
                     // Save new review
                     let reviewToSave = review
@@ -67,25 +64,25 @@ final class ReviewService {
 
                     
                     // Update latest review
-                    restaurantToEdit.latestReview = reviewToSave
+                    restaurant.latestReview = reviewToSave
                     
                     // Check if hiher and update
-                    if restaurantToEdit.highestReview == nil || review.rating >= restaurantToEdit.highestReview!.rating {
-                        restaurantToEdit.highestReview = reviewToSave
+                    if restaurant.highestReview == nil || review.rating >= restaurant.highestReview!.rating {
+                        restaurant.highestReview = reviewToSave
                     }
                     
                     // Check if lower and update
-                    if restaurantToEdit.lowestReview == nil || review.rating <= restaurantToEdit.lowestReview!.rating {
-                        restaurantToEdit.lowestReview = reviewToSave
+                    if restaurant.lowestReview == nil || review.rating <= restaurant.lowestReview!.rating {
+                        restaurant.lowestReview = reviewToSave
                     }
                     
                     // Update average rating
-                    let totalRating = restaurant.averageRating * Double(restaurantToEdit.ratingsCount)
-                    restaurantToEdit.ratingsCount += 1
-                    restaurantToEdit.averageRating = (totalRating + review.rating) / Double(restaurantToEdit.ratingsCount)
+                    let totalRating = restaurant.averageRating * Double(restaurant.ratingsCount)
+                    restaurant.ratingsCount += 1
+                    restaurant.averageRating = (totalRating + review.rating) / Double(restaurant.ratingsCount)
                     
                     // Finally save the restaurant
-                    try transaction.setData(from: restaurantToEdit, forDocument: restaurantRef)
+                    try transaction.setData(from: restaurant, forDocument: restaurantRef)
                     
                     return nil
                     

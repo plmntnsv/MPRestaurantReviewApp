@@ -11,6 +11,7 @@ import UIKit
 final class RestaurantsViewController: BaseAppearanceViewController {
     @IBOutlet private weak var restaurantsTableView: UITableView!
     @IBOutlet private weak var addNewContainerView: UIView?
+    let refreshControl = UIRefreshControl()
     var viewModel: RestaurantsViewModel!
     
     // MARK: - Lifecycle
@@ -19,12 +20,40 @@ final class RestaurantsViewController: BaseAppearanceViewController {
         
         navigationItem.title = "Restaurants"
         
-        let blockingView = view.block()
+        
         
         if UserManager.shared.currentUser?.isAdmin == false {
             addNewContainerView?.removeFromSuperview()
         }
         
+        setupTableView()
+        setupRefreshControl()
+        
+        fetchData(refresh: true)
+    }
+    
+    // MARK: - @IBAction
+    @IBAction private func didTapAddNewRestaurant(_ sender: Any) {
+        viewModel.didTapAddButton()
+    }
+    
+    //MARK: - Private
+    private func fetchData(refresh: Bool = false) {
+        let blockingView = view.block()
+        
+        Task {
+            switch await viewModel.getNextRestaurants(shouldRefresh: refresh) {
+            case .success:
+                restaurantsTableView.reloadData()
+            case .failure(let error):
+                ErrorHandler.showError(error, in: self)
+            }
+            
+            blockingView.removeFromSuperview()
+        }
+    }
+    
+    private func setupTableView() {
         restaurantsTableView.delegate = self
         restaurantsTableView.dataSource = self
         restaurantsTableView.register(
@@ -36,32 +65,16 @@ final class RestaurantsViewController: BaseAppearanceViewController {
             UINib(nibName: "\(LoadingTableViewCell.self)", bundle: nil),
             forCellReuseIdentifier: "\(LoadingTableViewCell.self)"
         )
-        
-        Task {
-            switch await viewModel.getNextRestaurants() {
-            case .success:
-                restaurantsTableView.reloadData()
-            case .failure(let error):
-                ErrorHandler.showError(error, in: self)
-            }
-            
-            blockingView.removeFromSuperview()
-        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        Task {
-            if await viewModel.refreshRestaurantsIfNeeded() {
-                restaurantsTableView.reloadData()
-            }
-        }
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        restaurantsTableView.refreshControl = refreshControl
     }
     
-    // MARK: - @IBAction
-    @IBAction private func didTapAddNewRestaurant(_ sender: Any) {
-        viewModel.didTapAddButton()
+    @objc private func refreshData() {
+        fetchData(refresh: true)
+        refreshControl.endRefreshing()
     }
 }
 
@@ -105,14 +118,7 @@ extension RestaurantsViewController: UITableViewDataSource {
 extension RestaurantsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell is LoadingTableViewCell {
-            Task {
-                switch await viewModel.getNextRestaurants() {
-                case .success:
-                    restaurantsTableView.reloadData()
-                case .failure(let error):
-                    ErrorHandler.showError(error, in: self)
-                }
-            }
+            fetchData()
         }
     }
     
@@ -136,5 +142,17 @@ extension RestaurantsViewController: RestaurantTableViewCellDelegate {
                 ErrorHandler.showError(error, in: self)
             }
         }
+    }
+}
+
+// MARK: - AddRestaurantViewControllerDelegate
+extension RestaurantsViewController: AddRestaurantViewControllerDelegate {
+    func onEditRestaurant(_ restaurant: Restaurant) {
+        viewModel.editRestaurant(restaurant)
+        restaurantsTableView.reloadData()
+    }
+    
+    func onAddNewRestaurant(_ restaurantId: String) {
+        // fetch and add new restaurant to dataSource. For now - pull to refresh
     }
 }

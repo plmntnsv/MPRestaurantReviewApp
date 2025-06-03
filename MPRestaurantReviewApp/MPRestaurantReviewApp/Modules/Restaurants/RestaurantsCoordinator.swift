@@ -13,18 +13,22 @@ final class RestaurantsCoordinator: Coordinator {
     private var needsDataUpdate: Bool = false
     private let restaurantService = RestaurantsService()
     
+    private var restaurantsViewController: RestaurantsViewController?
+    private var restaurantDetailsViewController: RestaurantDetailsViewController?
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     override func start() {
-        showRestaurantsScreen()
+        showRestaurants()
     }
     
-    private func showRestaurantsScreen() {
+    private func showRestaurants() {
         let viewModel = RestaurantsViewModel(service: restaurantService, coordinator: self)
         let viewController = RestaurantsViewController()
         viewController.viewModel = viewModel
+        restaurantsViewController = viewController
         
         navigationController.pushViewController(viewController, animated: false)
     }
@@ -33,6 +37,7 @@ final class RestaurantsCoordinator: Coordinator {
         let viewModel = RestaurantDetailsViewModel(restaurant: restaurant, service: restaurantService, coordinator: self)
         let viewController = RestaurantDetailsViewController()
         viewController.viewModel = viewModel
+        restaurantDetailsViewController = viewController
         
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -42,12 +47,12 @@ final class RestaurantsCoordinator: Coordinator {
         let viewModel = AddReviewViewModel(restaurant: restaurant, service: service, coordinator: self)
         let viewController = AddReviewViewController()
         viewController.viewModel = viewModel
+        viewController.delegate = restaurantDetailsViewController
         
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func didFinishAddReview() {
-        restaurantService.hasPendingUpdates = true
         navigationController.popViewController(animated: true)
     }
     
@@ -65,13 +70,12 @@ final class RestaurantsCoordinator: Coordinator {
         let viewController = AddRestaurantViewController()
         viewController.screenType = screenType
         viewController.viewModel = viewModel
+        viewController.delegate = restaurantsViewController
         
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func didFinishAddRestaurant() {
-        // TODO: notif
-        restaurantService.hasPendingUpdates = true
         navigationController.popViewController(animated: true)
     }
 }

@@ -20,34 +20,27 @@ final class RestaurantsViewModel {
         self.coordinator = coordinator
     }
     
-    func getNextRestaurants(limit: Int = 10) async -> Result<[Restaurant], Error> {
+    func getNextRestaurants(
+        shouldRefresh: Bool = false,
+        limit: Int = 10
+    ) async -> Result<[Restaurant], Error> {
+        if shouldRefresh {
+            lastRestaurantsDoc = nil
+            restaurants = []
+        }
+        
         switch await service.getAllRestaurants(limit: limit, startAfterDoc: lastRestaurantsDoc) {
         case .success(let restaurantsResult):
             if restaurantsResult.restaurants.isEmpty {
                 pagingIsComplete = true
             } else {
-                restaurants += restaurantsResult.restaurants
+                restaurants.append(contentsOf: restaurantsResult.restaurants)
             }
             
             lastRestaurantsDoc = restaurantsResult.lastDocument
             return .success(restaurants)
         case .failure(let error):
             return .failure(error)
-        }
-    }
-    
-    func refreshRestaurantsIfNeeded() async -> Bool {
-        guard service.hasPendingUpdates else {
-            return false
-        }
-        
-        lastRestaurantsDoc = nil
-        switch await getNextRestaurants(limit: restaurants.count) {
-        case .success:
-            service.hasPendingUpdates = false
-            return true
-        case .failure:
-            return false
         }
     }
     
@@ -72,6 +65,13 @@ final class RestaurantsViewModel {
             return .success(())
         case .failure(let error):
             return .failure(error)
+        }
+    }
+    
+    func editRestaurant(_ restaurant: Restaurant) {
+        if let indexToRemove = restaurants.firstIndex(where: { $0.id == restaurant.id }) {
+            restaurants.remove(at: indexToRemove)
+            restaurants.insert(restaurant, at: indexToRemove)
         }
     }
 }

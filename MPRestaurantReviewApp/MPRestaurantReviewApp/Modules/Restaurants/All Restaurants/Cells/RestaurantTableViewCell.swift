@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol RestaurantTableViewCellDelegate {
+protocol RestaurantTableViewCellDelegate: AnyObject {
     func restaurantCellDidTapEdit(_ restaurant: Restaurant)
     func restaurantCellDidTapDelete(_ restaurant: Restaurant)
 }
@@ -18,7 +18,7 @@ final class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet weak var actionButtonsStackView: UIStackView?
     @IBOutlet weak var titleLabel: UILabel!
     
-    private var delegate: RestaurantTableViewCellDelegate?
+    private weak var delegate: RestaurantTableViewCellDelegate?
     private var restaurant: Restaurant?
     
     override func awakeFromNib() {

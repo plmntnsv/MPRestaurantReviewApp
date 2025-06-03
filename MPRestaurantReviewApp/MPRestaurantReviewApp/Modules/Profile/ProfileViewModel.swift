@@ -21,6 +21,7 @@ final class ProfileViewModel {
     func logout() -> Result<Void, Error> {
         do {
             try Auth.auth().signOut()
+            UserManager.shared.removeCurrentUser()
             return .success(())
         } catch {
             return .failure(error)

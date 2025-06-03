@@ -20,7 +20,6 @@ struct ReviewsSuccessDataResult {
 
 final class RestaurantsService {
     private let restaurantsDB = Firestore.firestore().collection("restaurants")
-    var hasPendingUpdates = false
     
     func getRestaurant(withId id: String) async -> Result<Restaurant, Error> {
         do {
@@ -32,12 +31,11 @@ final class RestaurantsService {
         }
     }
     
-    func addRestaurant(_ name: String) async -> Result<Void, Error> {
-        let newRestaurant = Restaurant(name: name, averageRating: 0, ratingsCount: 0)
-        
+    func addRestaurant(_ restaurant: Restaurant) async -> Result<String, Error> {
         do {
-            try restaurantsDB.addDocument(from: newRestaurant)
-            return .success(())
+            let ref = try restaurantsDB.addDocument(from: restaurant)
+            
+            return .success(ref.documentID)
         } catch {
             return .failure(error)
         }
