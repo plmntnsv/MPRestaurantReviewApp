@@ -14,12 +14,18 @@ class KeyboardResponsiveViewController: BaseAppearanceViewController {
         fatalError("Subclasses must override contentScrollView")
     }
     
+    // MARK: Lifecycle
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupKeyboardObserver()
     }
     
+    // MARK: Private
     private func setupKeyboardObserver() {
         let dismissKeyboardTap = UITapGestureRecognizer(
             target: self,

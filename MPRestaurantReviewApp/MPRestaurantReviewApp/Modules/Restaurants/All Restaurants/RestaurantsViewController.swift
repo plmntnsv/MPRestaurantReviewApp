@@ -15,9 +15,9 @@ final class RestaurantsViewController: BaseAppearanceViewController {
     var viewModel: RestaurantsViewModel!
     
     // MARK: - Lifecycle
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

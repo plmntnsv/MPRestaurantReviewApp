@@ -13,6 +13,10 @@ final class AllReviewsViewController: BaseAppearanceViewController {
     var viewModel: AllReviewsViewModel!
     
     // MARK: - Lifecycle
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
