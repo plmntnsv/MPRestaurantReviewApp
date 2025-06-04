@@ -11,5 +11,7 @@ There are some things I wanted to do but didn't have time for:
 - Better text input validation, for example in registration and login
 - Caching
 - Users pagination
+- A lot more testing
+- Admin editing Users logic
 - Optimize the app for all screen sizes
 - Better UI
