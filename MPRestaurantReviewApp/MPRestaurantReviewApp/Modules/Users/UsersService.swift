@@ -10,6 +10,21 @@ import FirebaseFirestore
 import FirebaseAuth
 
 final class UsersService {
+    func getAllUsers() async -> Result<[User], Error> {
+        let db = Firestore.firestore()
+        do {
+            // TODO: suppport pagination
+            let snapshot = try await db.collection(DataFieldKeyName.users).getDocuments()
+            let users: [User] = try snapshot.documents.compactMap { document in
+                try document.data(as: User.self)
+            }
+                
+            return .success(users)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
     func searchForUser(with email: String) async -> Result<[User], Error> {
         let db = Firestore.firestore()
         let query = db.collection(DataFieldKeyName.users).whereField(DataFieldKeyName.email, isEqualTo: email)

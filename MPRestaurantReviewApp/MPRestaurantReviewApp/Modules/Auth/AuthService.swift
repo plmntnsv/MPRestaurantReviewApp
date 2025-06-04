@@ -62,7 +62,7 @@ final class AuthService {
                         email: email,
                         firstName: firstName,
                         lastName: lastName,
-                        isAdmin: false
+                        role: UserRole.user.rawValue
                     )
                     
                     guard let authResult else {

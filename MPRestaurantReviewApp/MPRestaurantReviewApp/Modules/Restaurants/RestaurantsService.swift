@@ -57,10 +57,10 @@ final class RestaurantsService {
         let reviewsRef = restaurantRef.collection(DataFieldKeyName.reviews)
         
         do {
-            // Step 1: Delete all reviews
+            // Delete all reviews
             try await deleteSubcollection(reviewsRef)
             
-            // Step 2: Delete the restaurant document
+            // Delete the restaurant document
             try await restaurantRef.delete()
             return .success(())
         } catch {

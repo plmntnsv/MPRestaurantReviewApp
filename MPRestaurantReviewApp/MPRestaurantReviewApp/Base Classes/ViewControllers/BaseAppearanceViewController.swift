@@ -36,15 +36,5 @@ class BaseAppearanceViewController: UIViewController {
         navigationItem.scrollEdgeAppearance = navAppearance
         navigationItem.compactAppearance = navAppearance
         navigationItem.compactScrollEdgeAppearance = navAppearance
-        
-//        navigationController?.navigationBar.standardAppearance = navAppearance
-//        navigationController?.navigationBar.compactAppearance = navAppearance
-//        
-//        navigationItem.standardAppearance?.buttonAppearance = navButtonAppearance
-//        navigationItem.compactAppearance?.buttonAppearance = navButtonAppearance
-//        navigationItem.standardAppearance?.doneButtonAppearance = navButtonAppearance
-//        navigationItem.compactAppearance?.doneButtonAppearance = navButtonAppearance
-//        navigationItem.standardAppearance?.backButtonAppearance = navButtonAppearance
-//        navigationItem.compactAppearance?.backButtonAppearance = navButtonAppearance
     }
 }

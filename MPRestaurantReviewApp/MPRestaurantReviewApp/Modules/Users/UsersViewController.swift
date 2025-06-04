@@ -12,6 +12,7 @@ final class UsersViewController: BaseAppearanceViewController {
     @IBOutlet private weak var usersTableView: UITableView!
     @IBOutlet weak var noUsersFoundLabel: UILabel!
     private let searchBar = UISearchBar()
+    private var isSearching = false
     
     var viewModel: UsersViewModel!
     
@@ -21,6 +22,18 @@ final class UsersViewController: BaseAppearanceViewController {
         
         setupSearchBar()
         setupTableView()
+        
+        let blockView = view.block()
+        Task {
+            switch await viewModel.getAllUsers() {
+            case .success:
+                usersTableView.reloadData()
+            case .failure(let error):
+                ErrorHandler.showError(error, in: self)
+            }
+            
+            blockView.removeFromSuperview()
+        }
     }
     
     // MARK: Private
@@ -42,20 +55,6 @@ final class UsersViewController: BaseAppearanceViewController {
             forCellReuseIdentifier: "\(UserCell.self)"
         )
     }
-
-    private func performSearch(with text: String) {
-        Task {
-            switch await viewModel.searchForUser(with: text) {
-            case .success(let foundUsers):
-                usersTableView.reloadData()
-                if !foundUsers {
-                    noUsersFoundLabel.isHidden = false
-                }
-            case .failure(let error):
-                ErrorHandler.showError(error, in: self)
-            }
-        }
-    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -68,14 +67,26 @@ extension UsersViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         guard let text = searchBar.text else { return }
         
-        performSearch(with: text)
+        Task {
+            switch await viewModel.searchForUser(with: text) {
+            case .success(let foundUsers):
+                isSearching = true
+                usersTableView.reloadData()
+                if !foundUsers {
+                    noUsersFoundLabel.isHidden = false
+                }
+            case .failure(let error):
+                ErrorHandler.showError(error, in: self)
+            }
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         noUsersFoundLabel.isHidden = true
         searchBar.text = ""
         searchBar.resignFirstResponder()
-        viewModel.clearResult()
+        viewModel.clearSearchResult()
+        isSearching = false
         usersTableView.reloadData()
     }
 }
@@ -83,17 +94,17 @@ extension UsersViewController: UISearchBarDelegate {
 // MARK: - UITableViewDataSource
 extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.searchResult.count
+        isSearching ? viewModel.searchResult.count : viewModel.allUsers.count
     }
 
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = usersTableView.dequeueReusableCell(
             withIdentifier: "\(UserCell.self)"
         ) as! UserCell
         
         cell.selectionStyle = .none
-        cell.setup(with: viewModel.searchResult[indexPath.row], delegate: self)
+        let user = isSearching ? viewModel.searchResult[indexPath.row] : viewModel.allUsers[indexPath.row]
+        cell.setup(with: user, delegate: self)
         
         return cell
     }

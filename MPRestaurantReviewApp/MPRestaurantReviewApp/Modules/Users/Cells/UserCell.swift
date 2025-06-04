@@ -17,7 +17,7 @@ final class UserCell: UITableViewCell {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    @IBOutlet weak var isAdminLabel: UILabel!
+    @IBOutlet weak var roleLabel: UILabel!
     
     private var user: User?
     private weak var delegate: UserCellDelegate?
@@ -26,7 +26,7 @@ final class UserCell: UITableViewCell {
         emailLabel.text = user.email
         firstNameLabel.text = user.firstName
         lastNameLabel.text = user.lastName
-        isAdminLabel.text = user.isAdmin ? "Yes" : "No"
+        roleLabel.text = user.role
         self.user = user
         self.delegate = delegate
     }

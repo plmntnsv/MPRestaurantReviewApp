@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81634CD2DF0357F00F045A7 /* DataGenerationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81634CC2DF0357F00F045A7 /* DataGenerationHelper.swift */; };
 		D85E3E1E2DE8F0B800F83575 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */; };
 		D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */; };
 		D85E3E202DE8F0B800F83575 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E0C2DE8F0B800F83575 /* AuthCoordinator.swift */; };
@@ -60,7 +61,7 @@
 		D85E3E9C2DED231800F83575 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */; };
 		D85E3E9E2DED233C00F83575 /* AddReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */; };
 		D85E3EA02DED24BA00F83575 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3E9F2DED24BA00F83575 /* AddReviewViewModel.swift */; };
-		D85E3EA42DEDA25C00F83575 /* Double+Truncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3EA32DEDA25C00F83575 /* Double+Truncate.swift */; };
+		D85E3EA42DEDA25C00F83575 /* Double+TruncateToRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3EA32DEDA25C00F83575 /* Double+TruncateToRating.swift */; };
 		D85E3EA72DEDAB2B00F83575 /* AllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3EA62DEDAB2B00F83575 /* AllReviewsViewController.swift */; };
 		D85E3EA92DEDAB3200F83575 /* AllReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85E3EA82DEDAB3200F83575 /* AllReviewsViewModel.swift */; };
 		D85E3EAB2DEDAB3600F83575 /* AllReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85E3EAA2DEDAB3600F83575 /* AllReviewsViewController.xib */; };
@@ -85,6 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D81634CC2DF0357F00F045A7 /* DataGenerationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGenerationHelper.swift; sourceTree = "<group>"; };
 		D85E3DA62DE7833E00F83575 /* MPRestaurantReviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPRestaurantReviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85E3E0A2DE8F0B800F83575 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D85E3E0B2DE8F0B800F83575 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		D85E3E9B2DED231800F83575 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		D85E3E9D2DED233C00F83575 /* AddReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddReviewViewController.xib; sourceTree = "<group>"; };
 		D85E3E9F2DED24BA00F83575 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
-		D85E3EA32DEDA25C00F83575 /* Double+Truncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Truncate.swift"; sourceTree = "<group>"; };
+		D85E3EA32DEDA25C00F83575 /* Double+TruncateToRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+TruncateToRating.swift"; sourceTree = "<group>"; };
 		D85E3EA62DEDAB2B00F83575 /* AllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsViewController.swift; sourceTree = "<group>"; };
 		D85E3EA82DEDAB3200F83575 /* AllReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsViewModel.swift; sourceTree = "<group>"; };
 		D85E3EAA2DEDAB3600F83575 /* AllReviewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllReviewsViewController.xib; sourceTree = "<group>"; };
@@ -289,9 +291,10 @@
 			isa = PBXGroup;
 			children = (
 				D85E3E5C2DEB6D9700F83575 /* ErrorHandler.swift */,
-				D85E3EA32DEDA25C00F83575 /* Double+Truncate.swift */,
+				D85E3EA32DEDA25C00F83575 /* Double+TruncateToRating.swift */,
 				D85E3EB12DEDB00200F83575 /* Date+AppFormat.swift */,
 				D8B55A552DEF500300224B5F /* DataFieldKeyName.swift */,
+				D81634CC2DF0357F00F045A7 /* DataGenerationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				D85E3E8B2DEC9D5600F83575 /* RestaurantDetailsViewController.swift in Sources */,
 				D85E3E572DEB604A00F83575 /* BlockUIView.swift in Sources */,
 				D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */,
+				D81634CD2DF0357F00F045A7 /* DataGenerationHelper.swift in Sources */,
 				D85E3E422DE9FB9E00F83575 /* PrimaryButton.swift in Sources */,
 				D85E3E3B2DE9DB7500F83575 /* BaseAppearanceViewController.swift in Sources */,
 				D8B55A5D2DEFBCD200224B5F /* UsersService.swift in Sources */,
@@ -585,7 +589,7 @@
 				D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */,
 				D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */,
 				D85E3E322DE90AA300F83575 /* RegistrationViewController.swift in Sources */,
-				D85E3EA42DEDA25C00F83575 /* Double+Truncate.swift in Sources */,
+				D85E3EA42DEDA25C00F83575 /* Double+TruncateToRating.swift in Sources */,
 				D85E3E7D2DEBD27800F83575 /* ProfileViewModel.swift in Sources */,
 				D85E3E7E2DEBD27800F83575 /* ProfileCoordinator.swift in Sources */,
 				D85E3E7F2DEBD27800F83575 /* ProfileViewController.swift in Sources */,

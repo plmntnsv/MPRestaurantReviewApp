@@ -12,6 +12,7 @@ final class UsersViewModel {
     private let service: UsersService
     private let coordinator: UsersCoordinator
     private(set) var searchResult: [User] = []
+    private(set) var allUsers: [User] = []
     
     init(service: UsersService, coordinator: UsersCoordinator) {
         self.service = service
@@ -28,8 +29,18 @@ final class UsersViewModel {
         }
     }
     
-    func clearResult() {
+    func clearSearchResult() {
         searchResult = []
+    }
+    
+    func getAllUsers() async -> Result<Void, Error> {
+        switch await service.getAllUsers() {
+        case .success(let users):
+            self.allUsers = users
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
     func deleteUser(_ user: User) async -> Result<Void, Error> {
@@ -62,7 +73,7 @@ final class UsersViewModel {
                     email: old.email,
                     firstName: old.firstName,
                     lastName: old.lastName,
-                    isAdmin: true
+                    role: UserRole.admin.rawValue
                 )
                 searchResult[index] = new
             }

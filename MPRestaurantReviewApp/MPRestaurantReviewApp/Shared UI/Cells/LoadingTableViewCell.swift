@@ -10,5 +10,4 @@ import UIKit
 
 final class LoadingTableViewCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
-    
 }
