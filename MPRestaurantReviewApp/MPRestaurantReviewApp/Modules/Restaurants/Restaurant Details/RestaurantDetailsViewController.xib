@@ -26,25 +26,25 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuJ-ca-iHg" userLabel="Restaurant Name Label">
+                    <rect key="frame" x="8" y="118" width="291" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4p-Vg-OTY">
-                    <rect key="frame" x="20" y="118" width="353" height="24"/>
+                    <rect key="frame" x="299" y="106" width="74" height="24"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuJ-ca-iHg" userLabel="Restaurant Name Label">
-                            <rect key="frame" x="0.0" y="0.0" width="279" height="24"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bU9-nr-He1">
-                            <rect key="frame" x="279" y="-0.33333333333333215" width="24" height="23.666666666666664"/>
+                            <rect key="frame" x="0.0" y="-0.33333333333333215" width="24" height="23.666666666666664"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="4CC-5o-iT3"/>
                                 <constraint firstAttribute="width" secondItem="bU9-nr-He1" secondAttribute="height" multiplier="1:1" id="LHQ-Pz-cmp"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLt-no-vgA" userLabel="Rating">
-                            <rect key="frame" x="303" y="0.0" width="50" height="24"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLt-no-vgA" userLabel="Rating">
+                            <rect key="frame" x="24" y="0.0" width="50" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="mTs-R3-zso"/>
                             </constraints>
@@ -55,7 +55,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lJg-eG-kni">
-                    <rect key="frame" x="20" y="150" width="353" height="385"/>
+                    <rect key="frame" x="20" y="126" width="353" height="385"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uZL-yt-cOd" userLabel="Latest Stack View">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="120.33333333333333"/>
@@ -121,7 +121,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwy-hw-YlZ">
-                    <rect key="frame" x="20" y="543" width="353" height="40"/>
+                    <rect key="frame" x="20" y="519" width="353" height="40"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wzt-5K-Jd2">
                             <rect key="frame" x="198" y="5" width="155" height="30"/>
@@ -157,15 +157,17 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="backgroundColor 2"/>
             <constraints>
-                <constraint firstItem="O4p-Vg-OTY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2F9-BX-gW2"/>
                 <constraint firstItem="lJg-eG-kni" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="2Fa-aC-aGx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lJg-eG-kni" secondAttribute="trailing" constant="20" id="2XD-nU-jeD"/>
+                <constraint firstItem="FuJ-ca-iHg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="37Z-6k-d2M"/>
+                <constraint firstItem="FuJ-ca-iHg" firstAttribute="trailing" secondItem="O4p-Vg-OTY" secondAttribute="leading" id="3NN-2P-KMt"/>
                 <constraint firstItem="dwy-hw-YlZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7aY-TP-ne2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lJg-eG-kni" secondAttribute="bottom" id="ATd-dS-pS6"/>
+                <constraint firstItem="lJg-eG-kni" firstAttribute="top" secondItem="FuJ-ca-iHg" secondAttribute="bottom" constant="8" id="Eis-Qt-hpY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O4p-Vg-OTY" secondAttribute="trailing" constant="20" id="FzO-Fy-nXt"/>
-                <constraint firstItem="O4p-Vg-OTY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="SAE-KH-h8M"/>
-                <constraint firstItem="lJg-eG-kni" firstAttribute="top" secondItem="O4p-Vg-OTY" secondAttribute="bottom" constant="8" id="ZOK-Pz-Xj5"/>
+                <constraint firstItem="FuJ-ca-iHg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vyp-1n-FSe"/>
                 <constraint firstItem="dwy-hw-YlZ" firstAttribute="top" secondItem="lJg-eG-kni" secondAttribute="bottom" constant="8" id="ZnV-Wd-3jO"/>
+                <constraint firstItem="O4p-Vg-OTY" firstAttribute="centerY" secondItem="FuJ-ca-iHg" secondAttribute="centerY" id="ryF-nv-xra"/>
                 <constraint firstItem="dwy-hw-YlZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uH9-jR-qnW"/>
             </constraints>
             <point key="canvasLocation" x="59" y="20"/>
