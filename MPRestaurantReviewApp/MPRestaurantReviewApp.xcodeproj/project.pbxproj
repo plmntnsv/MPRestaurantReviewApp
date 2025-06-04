@@ -75,6 +75,13 @@
 		D8B55A492DEE394E00224B5F /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */; };
 		D8B55A4B2DEE5A4F00224B5F /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */; };
 		D8B55A562DEF500300224B5F /* DataFieldKeyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A552DEF500300224B5F /* DataFieldKeyName.swift */; };
+		D8B55A5D2DEFBCD200224B5F /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A592DEFBCD200224B5F /* UsersService.swift */; };
+		D8B55A5E2DEFBCD200224B5F /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A5A2DEFBCD200224B5F /* UsersViewController.swift */; };
+		D8B55A5F2DEFBCD200224B5F /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A582DEFBCD200224B5F /* UsersCoordinator.swift */; };
+		D8B55A602DEFBCD200224B5F /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A5C2DEFBCD200224B5F /* UsersViewModel.swift */; };
+		D8B55A612DEFBCD200224B5F /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B55A5B2DEFBCD200224B5F /* UsersViewController.xib */; };
+		D8B55A682DEFCAF600224B5F /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B55A672DEFCAF600224B5F /* UserCell.xib */; };
+		D8B55A6A2DEFCB4300224B5F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B55A692DEFCB4300224B5F /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +152,13 @@
 		D8B55A482DEE394E00224B5F /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		D8B55A4A2DEE5A4F00224B5F /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		D8B55A552DEF500300224B5F /* DataFieldKeyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFieldKeyName.swift; sourceTree = "<group>"; };
+		D8B55A582DEFBCD200224B5F /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
+		D8B55A592DEFBCD200224B5F /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		D8B55A5A2DEFBCD200224B5F /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		D8B55A5B2DEFBCD200224B5F /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
+		D8B55A5C2DEFBCD200224B5F /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		D8B55A672DEFCAF600224B5F /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		D8B55A692DEFCB4300224B5F /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +216,7 @@
 		D85E3E132DE8F0B800F83575 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D8B55A572DEFBCCC00224B5F /* Users */,
 				D85E3E642DEBA45300F83575 /* Profile */,
 				D85E3E962DED07DA00F83575 /* Reviews */,
 				D85E3E632DEBA44000F83575 /* Restaurants */,
@@ -434,6 +449,28 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		D8B55A572DEFBCCC00224B5F /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				D8B55A662DEFC6E000224B5F /* Cells */,
+				D8B55A582DEFBCD200224B5F /* UsersCoordinator.swift */,
+				D8B55A592DEFBCD200224B5F /* UsersService.swift */,
+				D8B55A5A2DEFBCD200224B5F /* UsersViewController.swift */,
+				D8B55A5B2DEFBCD200224B5F /* UsersViewController.xib */,
+				D8B55A5C2DEFBCD200224B5F /* UsersViewModel.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		D8B55A662DEFC6E000224B5F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8B55A692DEFCB4300224B5F /* UserCell.swift */,
+				D8B55A672DEFCAF600224B5F /* UserCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -515,7 +552,9 @@
 				D85E3EAB2DEDAB3600F83575 /* AllReviewsViewController.xib in Resources */,
 				D85E3EB02DEDABE100F83575 /* ReviewTableViewCell.xib in Resources */,
 				D8B55A472DEDD0F200224B5F /* LoadingTableViewCell.xib in Resources */,
+				D8B55A682DEFCAF600224B5F /* UserCell.xib in Resources */,
 				D85E3EBA2DEDC72700F83575 /* AddRestaurantViewController.xib in Resources */,
+				D8B55A612DEFBCD200224B5F /* UsersViewController.xib in Resources */,
 				D85E3E462DEA243100F83575 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,6 +577,10 @@
 				D85E3E382DE90B8200F83575 /* RegistrationViewModel.swift in Sources */,
 				D85E3E422DE9FB9E00F83575 /* PrimaryButton.swift in Sources */,
 				D85E3E3B2DE9DB7500F83575 /* BaseAppearanceViewController.swift in Sources */,
+				D8B55A5D2DEFBCD200224B5F /* UsersService.swift in Sources */,
+				D8B55A5E2DEFBCD200224B5F /* UsersViewController.swift in Sources */,
+				D8B55A5F2DEFBCD200224B5F /* UsersCoordinator.swift in Sources */,
+				D8B55A602DEFBCD200224B5F /* UsersViewModel.swift in Sources */,
 				D85E3E8D2DEC9D6300F83575 /* RestaurantDetailsViewModel.swift in Sources */,
 				D85E3E1F2DE8F0B800F83575 /* Coordinator.swift in Sources */,
 				D85E3E2C2DE9032600F83575 /* TabBarCoordinator.swift in Sources */,
@@ -555,6 +598,7 @@
 				D85E3E212DE8F0B800F83575 /* LoginViewController.swift in Sources */,
 				D85E3EB22DEDB00200F83575 /* Date+AppFormat.swift in Sources */,
 				D85E3E822DEC504500F83575 /* Restaurant.swift in Sources */,
+				D8B55A6A2DEFCB4300224B5F /* UserCell.swift in Sources */,
 				D85E3EB82DEDC72700F83575 /* AddRestaurantViewController.swift in Sources */,
 				D85E3EB92DEDC72700F83575 /* AddRestaurantViewModel.swift in Sources */,
 				D85E3E9C2DED231800F83575 /* AddReviewViewController.swift in Sources */,

@@ -11,6 +11,7 @@ enum DataFieldKeyName {
     // collection names
     static let reviews = "reviews"
     static let restaurants = "restaurants"
+    static let users = "users"
     
     // restaurants
     static let name = "name"
@@ -28,4 +29,7 @@ enum DataFieldKeyName {
     static let comment = "comment"
     static let userId = "userId"
     static let author = "author"
+    
+    //users
+    static let email = "email"
 }

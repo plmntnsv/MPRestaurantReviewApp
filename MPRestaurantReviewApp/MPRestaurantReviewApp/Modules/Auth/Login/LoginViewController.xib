@@ -39,7 +39,7 @@
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-uw-wQ6" userLabel="App Icon ImageView">
-                                    <rect key="frame" x="171.66666666666666" y="47.666666666666671" width="50" height="49.666666666666671"/>
+                                    <rect key="frame" x="171.66666666666666" y="48.666666666666664" width="50" height="48.666666666666679"/>
                                     <color key="tintColor" red="0.92531813789999995" green="0.70262163129999999" blue="0.60770942900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="2D0-2w-Fac"/>

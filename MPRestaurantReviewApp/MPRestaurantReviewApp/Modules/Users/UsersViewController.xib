@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersViewController" customModule="MPRestaurantReviewApp" customModuleProvider="target">
+            <connections>
+                <outlet property="noUsersFoundLabel" destination="IGy-k3-xRZ" id="QQC-K1-ISv"/>
+                <outlet property="usersTableView" destination="ugu-6F-ReN" id="lRG-7D-spJ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="EWP-ra-I6A"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ugu-6F-ReN">
+                    <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Users Found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGy-k3-xRZ">
+                    <rect key="frame" x="117" y="413.33333333333331" width="159" height="25.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ugu-6F-ReN" secondAttribute="bottom" id="UFH-Uf-06u"/>
+                <constraint firstItem="IGy-k3-xRZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Xh7-fZ-R5T"/>
+                <constraint firstItem="ugu-6F-ReN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bC5-9U-J7q"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ugu-6F-ReN" secondAttribute="trailing" id="dTG-SA-clI"/>
+                <constraint firstItem="ugu-6F-ReN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="oPc-Vw-9Zh"/>
+                <constraint firstItem="IGy-k3-xRZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="z5F-Be-Y4X"/>
+            </constraints>
+            <point key="canvasLocation" x="-103.05343511450381" y="19.718309859154932"/>
+        </view>
+    </objects>
+</document>

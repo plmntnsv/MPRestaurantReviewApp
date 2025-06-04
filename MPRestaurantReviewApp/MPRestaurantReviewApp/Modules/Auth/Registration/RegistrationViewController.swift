@@ -70,7 +70,7 @@ final class RegistrationViewController: KeyboardResponsiveViewController {
             
             switch result {
             case .success:
-                view.backgroundColor = .green
+                viewModel.finishRegistration()
             case .failure(let error):
                 ErrorHandler.showError(error, in: self)
             }

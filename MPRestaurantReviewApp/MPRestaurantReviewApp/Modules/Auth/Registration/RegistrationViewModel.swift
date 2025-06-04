@@ -46,7 +46,7 @@ final class RegistrationViewModel {
         }
     }
     
-    private func finishRegistration() {
+    func finishRegistration() {
         coordinator.didFinishLogin()
     }
 }

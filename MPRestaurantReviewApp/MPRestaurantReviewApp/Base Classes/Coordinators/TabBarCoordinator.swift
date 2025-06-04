@@ -24,6 +24,7 @@ class TabBarCoordinator: Coordinator {
     }
     
     private func initializeTabs() -> [UIViewController] {
+        var tabs: [UIViewController] = []
         // Restaurants tab
         let restaurantsNav = BaseNavigationController(
             tabBarImage: "building.2",
@@ -32,16 +33,30 @@ class TabBarCoordinator: Coordinator {
         let restaurantsCoordinator = RestaurantsCoordinator(navigationController: restaurantsNav)
         addChildCoordinator(restaurantsCoordinator)
         restaurantsCoordinator.start()
+        tabs.append(restaurantsNav)
         
         // Users tab
+        if UserManager.shared.currentUser!.isAdmin {
+            let usersNav = BaseNavigationController(
+                tabBarImage: "person.2",
+                selectedTabBarImage: "person.2.fill"
+            )
+            let usersCoordinator = UsersCoordinator(navigationController: usersNav)
+            addChildCoordinator(usersCoordinator)
+            usersCoordinator.start()
+            tabs.append(usersNav)
+        }
+        
+        // Profile tab
         let profileNav = BaseNavigationController(
-            tabBarImage: "person",
-            selectedTabBarImage: "person.fill"
+            tabBarImage: "person.crop.circle",
+            selectedTabBarImage: "person.crop.circle.fill"
         )
         let profileCoordinator = ProfileCoordinator(navigationController: profileNav)
         addChildCoordinator(profileCoordinator)
         profileCoordinator.start()
+        tabs.append(profileNav)
         
-        return [restaurantsNav, profileNav]
+        return tabs
     }
 }
