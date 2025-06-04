@@ -12,7 +12,7 @@ final class ProfileViewController: BaseAppearanceViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var emailLabel: UILabel!
     @IBOutlet private weak var adminLabel: UILabel!
-    @IBOutlet private weak var dataDeletionButtonsContainerView: UIView!
+
     var viewModel: ProfileViewModel!
     
     override func viewDidLoad() {
@@ -21,7 +21,6 @@ final class ProfileViewController: BaseAppearanceViewController {
         nameLabel.text = "\(viewModel.currentUser!.firstName) \(viewModel.currentUser!.lastName)"
         emailLabel.text = viewModel.currentUser!.email
         adminLabel.isHidden = !viewModel.currentUser!.isAdmin
-        dataDeletionButtonsContainerView.isHidden = !viewModel.currentUser!.isAdmin
         
         navigationItem.title = "Profile"
     }
@@ -35,17 +34,5 @@ final class ProfileViewController: BaseAppearanceViewController {
             blockView.removeFromSuperview()
             ErrorHandler.showError(error, in: self)
         }
-    }
-    
-    @IBAction private func didTapDeleteRestaurants(_ sender: Any) {
-        
-    }
-    
-    @IBAction private func didTapDeleteReviews(_ sender: Any) {
-        
-    }
-    
-    @IBAction private func didTapDeleteEverything(_ sender: Any) {
-        
     }
 }
