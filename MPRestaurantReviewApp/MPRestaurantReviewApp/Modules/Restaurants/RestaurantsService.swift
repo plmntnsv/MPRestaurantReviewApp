@@ -68,22 +68,6 @@ final class RestaurantsService {
         }
     }
     
-    private func deleteSubcollection(_ subcollectionRef: CollectionReference, batchSize: Int = 10) async throws {
-        let snapshot = try await subcollectionRef.limit(to: batchSize).getDocuments()
-        
-        guard !snapshot.documents.isEmpty else { return }
-
-        let batch = subcollectionRef.firestore.batch()
-        
-        for document in snapshot.documents {
-            batch.deleteDocument(document.reference)
-        }
-
-        try await batch.commit()
-
-        try await deleteSubcollection(subcollectionRef, batchSize: batchSize)
-    }
-    
     func getAllRestaurants(
         limit: Int,
         startAfterDoc: DocumentSnapshot? = nil
@@ -140,18 +124,35 @@ final class RestaurantsService {
         var latest: Review?
         var highest: Review?
         var lowest: Review?
-        if restaurant.latestReviewId != nil {
-            latest = try? await reviewsRef.document(restaurant.latestReviewId!).getDocument(as: Review.self)
+        if let latestId = restaurant.latestReviewId {
+            latest = try? await reviewsRef.document(latestId).getDocument(as: Review.self)
         }
         
-        if restaurant.highestReviewId != nil {
-            highest = try? await reviewsRef.document(restaurant.highestReviewId!).getDocument(as: Review.self)
+        if let highestId = restaurant.highestReviewId {
+            highest = try? await reviewsRef.document(highestId).getDocument(as: Review.self)
         }
         
-        if restaurant.lowestReviewId != nil {
-            lowest = try? await reviewsRef.document(restaurant.lowestReviewId!).getDocument(as: Review.self)
+        if let lowestId = restaurant.lowestReviewId {
+            lowest = try? await reviewsRef.document(lowestId).getDocument(as: Review.self)
         }
         
         return RestaurantDetailsKeyReviews(latest: latest, highest: highest, lowest: lowest)
+    }
+    
+    // MARK: - Private
+    private func deleteSubcollection(_ subcollectionRef: CollectionReference, batchSize: Int = 10) async throws {
+        let snapshot = try await subcollectionRef.limit(to: batchSize).getDocuments()
+        
+        guard !snapshot.documents.isEmpty else { return }
+
+        let batch = subcollectionRef.firestore.batch()
+        
+        for document in snapshot.documents {
+            batch.deleteDocument(document.reference)
+        }
+
+        try await batch.commit()
+
+        try await deleteSubcollection(subcollectionRef, batchSize: batchSize)
     }
 }

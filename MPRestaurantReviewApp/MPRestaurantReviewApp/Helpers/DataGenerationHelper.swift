@@ -9,6 +9,9 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
+
+/// !!! THIS CLASS IS USED ONLY TO GENERATE TEST DATA !!!
+
 final class DataGenerationHelper {
     struct TestUser {
         let email: String
@@ -35,7 +38,7 @@ final class DataGenerationHelper {
         let firstNamesPool = ["Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Sophia", "William", "Isabella"]
         let lastNamesPool = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez"]
 
-        // MARK: - 1. Create Users
+        // Create Users
         let testUsers: [TestUser] = (1...10).map {
             TestUser(
                 email: "\(firstNamesPool[$0-1])@a.com".lowercased(),
@@ -65,7 +68,7 @@ final class DataGenerationHelper {
             }
         }
         
-        // MARK: - 2. Create Restaurants and Reviews
+        // Create Restaurants and Reviews
         let restaurantNames: [String] = ["Pizza Hut", "McDonald's", "KFC", "Subway", "Burger King", "Wendy's", "Five Guys Burgers and Fries", "Chick-fil-A", "Taco Bell", "Dairy Queen", "Happy", "Burger Place", "Salad Place", "Sushi Place", "Burrata", "Shtastliveca", "Pizzeria", "Pizzeria Roma", "Pizzeria Napoletana", "The Corner"]
         for i in 1...20 {
             let restaurantRef = db.collection("restaurants").document()
